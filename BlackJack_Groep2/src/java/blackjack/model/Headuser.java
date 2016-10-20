@@ -15,6 +15,16 @@ public class Headuser extends User {
         this.password=password;
         this.email=email;
     }
+    /**
+     * amount is het aantal credits die je wil toekennen aan een bepaalde speler(user)
+     * @param amount
+     * @param user 
+     */
+    public void addCredits(int amount, User user){
+        user.setBalance(user.getBalance()+amount);
+    }
+    
+    
     
     
     

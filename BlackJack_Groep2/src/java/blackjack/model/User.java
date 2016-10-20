@@ -19,6 +19,26 @@ public class User {
         this.icon = icon;
     }
     
+    public void setIcon(Icon i){
+        this.icon=i;
+    }
+    
+    public void setGamestate(Gamestate gs){
+        this.state=gs;
+    }
+    
+    public Hand getHand(){
+        return hand;
+    }
+    
+    public int getBalance(){
+        return balance;
+    }
+    
+    public void setBalance(int balance){
+        this.balance=balance;
+    }
+    
     
     
     
