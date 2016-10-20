@@ -45,8 +45,9 @@ public class Hand {
         int value = 0;
         Iterator <Card> it = kaarten.iterator();
         while (it.hasNext()){
-            value+=next().getValue();
+            value+= it.next().getValue();
         }
+        return value;
     }
     
     
