@@ -10,5 +10,8 @@ package blackjack.model;
  * @author Wouter
  */
 public enum Handstate {
+    /**
+     * verschillende states waarin een hand zich kan bevinden
+     */
     Busted, Blackjack, Stand
 }

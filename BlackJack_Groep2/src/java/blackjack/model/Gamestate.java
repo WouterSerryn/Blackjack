@@ -10,5 +10,8 @@ package blackjack.model;
  * @author Wouter
  */
 public enum Gamestate {
+    /**
+     * mogelijke staten waarin een speler zich kan bevinden
+     */
     Win, Loss, Push, Blackjack
 }

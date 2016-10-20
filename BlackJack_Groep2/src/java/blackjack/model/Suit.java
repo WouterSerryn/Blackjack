@@ -10,5 +10,8 @@ package blackjack.model;
  * @author Wouter
  */
 public enum Suit {
+    /**
+     * mogelijke suits
+     */
     Hearts,Clubs,Spades,Diamonds
 }
