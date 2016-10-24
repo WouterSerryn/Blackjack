@@ -32,6 +32,10 @@ public class User {
         this.state=gs;
     }
     
+    public Gamestate getState(){
+        return this.state;
+    }
+    
     /**
      * hoeveel credits een speler wil inzetten
      * @param amount 
@@ -51,8 +55,9 @@ public class User {
     public void setBalance(int balance){
         this.balance=balance;
     }
-    
-    
-    
+
+    public int getBet() {
+        return bet;
+    }
     
 }

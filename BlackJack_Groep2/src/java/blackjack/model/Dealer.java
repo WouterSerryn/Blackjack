@@ -19,13 +19,16 @@ public class Dealer {
     public Dealer() throws URISyntaxException {
         this.hand = new Hand();
         this.icon = new Icon("naam",new URI("path"));
-        this.minimumStand = minimumStand;
-        this.minimumDraw = minimumDraw;
+        this.minimumStand = 17;
+        this.minimumDraw = 16;
     }
     
     public Hand getHand(){
         return hand;
     }
     
+    public void setMinimumDraw(int draw){
+        this.minimumDraw = draw;
+    }
     
 }

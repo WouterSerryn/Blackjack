@@ -49,6 +49,14 @@ public class Hand {
         this.state = hs;
     }
     
+    public Handstate getState(){
+        return this.state;
+    }
+    
+    public ArrayList<Card> getCards(){
+        return cards;
+    }
+    
     public int getValue(){
         int value = 0;
         Iterator <Card> it = cards.iterator();

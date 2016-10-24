@@ -18,6 +18,7 @@ public class Card {
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
+        visible = true;
     }
     
     /**
@@ -40,8 +41,12 @@ public class Card {
      * vraagt de suit op (harten, ruiten, schoppen, klaveren)
      * @return 
      */
-    private String getSuitname(){
+    public String getSuitname(){
         return this.suit.name();
+    }
+    
+    public void setVisibility(boolean visibility){
+        visible=visibility;
     }
     
 }

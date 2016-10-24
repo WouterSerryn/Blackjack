@@ -47,7 +47,7 @@ public class Deck {
      * de getrokken kaart verwijderen van de stapel
      * @param c 
      */
-    public void removeCard(Card c){
+    public void removeCard(){
         cards.remove(0);
     }
     
