@@ -7,7 +7,121 @@ and open the template in the editor.
     Created on : 24-okt-2016, 8:13:39
     Author     : Wouter
 */
-.Game{
+body
+{
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    font-family: Helvetica;
+}
+#container{
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    height: 400px;
+    background-color: gray;
+}
+
+
+
+
+
+
+.regularButton
+{
+    padding: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+}
+.regularButton:hover
+{
+    background-color: gray;
     
 }
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+#infoButton{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+#playButton{
+    width: 120px;
+ 
+    position: absolute;
+    left: 140px;
+    bottom: 20px;
+}
+#loginButton{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+}
+#userMenu{
+    display: none;
+        position: absolute;
+    top: 20px;
+    right: 20px;
+    list-style: none;
+}
+#userMenu:hover #menuList
+{
+    display: block;
+}
+#userMenu:hover .menuImage{
+    display: none;
+}
+
+
+
+#startTitle{
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    top:100px;
+    left: 75px;
+    font-size: 35px;
+    text-align: center;
+    padding: 0;
+ 
+    
+}
+#startImage{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 150px;
+    left: 125px;
+    background-image: url("images/aces.png");
+    background-size: 150px 100px;
+    background-repeat: no-repeat;
+}
+#menuList{
+    list-style: none;
+    display: none;
+}
+
+
+.menuImage{
+    width:40px;
+    height: 40px;
+    position: relative;
+    float: left;
+    display: block;
+   
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+}
+
+    
 
