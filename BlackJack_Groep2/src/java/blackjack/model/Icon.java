@@ -17,6 +17,13 @@ public class Icon {
         this.iconimage = iconimage;
     }
     
+    public String getIconname(){
+        return this.iconname;
+    }
+    
+    public URI getIconimage(){
+        return this.iconimage;
+    }
     
     
 }
