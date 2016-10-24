@@ -11,20 +11,12 @@ import java.util.Iterator;
 public class Hand {
     
     private ArrayList<Card> cards;
-    private int bet;
     private Handstate state;
 
     public Hand() {
         this.cards = new ArrayList();
     }
     
-    /**
-     * hoeveel credits een speler wil inzetten
-     * @param amount 
-     */
-    public void setBet(int amount){
-        this.bet=amount;
-    }
     /**
      * Card c toevoegen aan de Hand na de kaartverdeling of Hit
      * @param c 
