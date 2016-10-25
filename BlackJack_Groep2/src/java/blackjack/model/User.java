@@ -1,9 +1,6 @@
 
 package blackjack.model;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 /**
  *
  * @author Chayenne Jacques
@@ -17,10 +14,10 @@ public class User {
     private Hand hand;
     private Gamestate state;
 
-    public User(String nickname, int balance) throws URISyntaxException {
+    public User(String nickname, int balance, Icon icon)  {
         this.nickname = nickname;
         this.balance = balance;
-        this.icon = new Icon("naam",new URI("path"));
+        this.icon = icon;
         this.hand = new Hand();
     }
     

@@ -10,9 +10,9 @@ import java.net.URI;
 public class Icon {
     
     private String iconname;
-    private URI iconimage;
+    private String iconimage;
 
-    public Icon(String iconname, URI iconimage) {
+    public Icon(String iconname, String iconimage) {
         this.iconname = iconname;
         this.iconimage = iconimage;
     }
@@ -21,7 +21,7 @@ public class Icon {
         return this.iconname;
     }
     
-    public URI getIconimage(){
+    public String getIconimage(){
         return this.iconimage;
     }
     
