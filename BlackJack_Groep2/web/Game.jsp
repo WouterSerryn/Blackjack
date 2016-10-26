@@ -13,9 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div id="container">
-            
+        <div id="largeContainer">
+        <div id="gameContainer">
+            <img src="images/blackjackTable.png" />
         </div>
-        
+        </div>
     </body>
 </html>

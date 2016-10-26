@@ -4,127 +4,134 @@
     Author     : Wouter
 --%>
 
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="blackjack.model.User"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
 <%
-    String a;
- 
-    ArrayList<String> selectie =new ArrayList();
-    if(request.getParameter("select0")!=null)
-    {
-        selectie.add(request.getParameter("select0"));
-    }
-    else
-    {
-        selectie.add("");
-    }
-    if(request.getParameter("select1")!=null)
-    {
-        selectie.add(request.getParameter("select1"));
-    }
-    else
-    {
-        selectie.add("");
-    }
-    if(request.getParameter("select2")!=null)
-    {
-        selectie.add(request.getParameter("select2"));
-    }
-    else
-    {
-        selectie.add("");
-    }
-    if(request.getParameter("select3")!=null)
-    {
-        selectie.add(request.getParameter("select3"));
-    }
-    else
-    {
-        selectie.add("");
-    }
-    
-    ArrayList<String> players = new ArrayList();
-    ArrayList<String> users=new ArrayList();
-    users.add("speler1");
-    users.add("speler2");
-    users.add("speler3");
-    users.add("speler4");
-    for(String s: users)
-    {
-        players.add("");
-    }
-    players.set(0,request.getParameter("select0"));
-    players.set(1,request.getParameter("select1"));
-    players.set(2,request.getParameter("select2"));
-    players.set(3,request.getParameter("select3"));
-    for(String s: players)
-    {
-        if(s.equals(null))
-        {
-            s="";
-        }
-    }
-    if (request.getParameter("amount") == null) {
-        a = "1";
-    } else {
-        a = request.getParameter("amount");
-    }
+    //int max=4;
+    ArrayList<String> users = new ArrayList<String>();
+    users.add("Speler1");
+    users.add("Speler2");
+    users.add("Speler3");
+    users.add("Speler4");
+    users.add("Speler5");
+    users.add("Speler6");
+    users.add("Speler7");
+    users.add("Speler8");
+    users.add("Speler9");
+    users.add("Speler10");
+    users.add("Speler11");
+    users.add("Speler12");
+
 
 %>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="game.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript">
+            selected = 0;
+            users = [];
+            function swapSelected(index, user)
+            {
+
+
+                if (document.getElementById(index).classList.contains("userBlock"))
+                {
+
+                    if (selected < 4)
+                    {
+                        users.push(user)
+                        document.getElementById(index).classList.remove("userBlock");
+                        document.getElementById(index).classList.add("userBlockSelected");
+                        window.selected = window.selected + 1;
+                    }
+                    else
+                    {
+                        alert("Maximum 4 spelers");
+                    }
+                } else
+                {
+                    for (var i = users.length - 1; i >= 0; i--) {
+                        if (users[i] === user) {
+                            users.splice(i, 1);
+                        }
+                    }
+                    document.getElementById(index).classList.add("userBlock");
+                    document.getElementById(index).classList.remove("userBlockSelected");
+                    window.selected--;
+
+                }
+
+                for (var i = users.length - 1; i >= 0; i--) {
+                    console.log(users[i]);
+                }
+            }
+            function submitForm()
+            {
+
+                var form = document.getElementById("userSelect");
+
+                // Create an element (IE)
+                //element = document.createElement("<input name='newfield' type='hidden' value='success' />");
+
+                // Create ane element for everyone else and set its attributes.
+                for (var i = 0; i < users.length; i++) {
+
+
+                    element = document.createElement("input");
+                    element.setAttribute("name", i);
+                    element.setAttribute("type", "hidden");
+                    element.setAttribute("value", users[i]);
+                    form.appendChild(element);
+                    console.log("added");
+                }
+                // Add the input field to the form and submit
+                if(users.length>0)
+                {
+                form.submit();
+            }
+            else{
+                alert("gelieve minstens 1 speler selecteren");
+            }
+
+
+
+
+
+            }
+        </script>
+        <title>Spelers selecteren</title>
     </head>
     <body>
-        <form method="post" name="PlayerSelect">
-            <select onchange="Javascript:PlayerSelect.submit()" name="amount">
-                <option <% if (a.equals("1")) {
-                        out.print("Selected");
-                    } %> value="1">1</option>
-                <option <% if (a.equals("2")) {
-                        out.print("Selected");
-                    } %> value="2">2</option>
-                <option <% if (a.equals("3")) {
-                        out.print("Selected");
-                    } %> value="3">3</option>
-                <option <% if (a.equals("4")) {
-                        out.print("Selected");
-                    } %> value="4">4</option>
-            </select>
-            
+        <form id="userSelect" name="userSelect" action="Game.jsp" method="post">
+            <div id="largeContainer">
+                <div id="userBlockContainer">
+                    <%  Iterator<String> it = users.iterator();
+                        String user;
+                        int i = 0;
+                        while (it.hasNext()) {
+                            user = it.next();
+                    %>
+                    <div onclick="swapSelected(<% out.print(i + "," + "'" + user + "'"); %>)" class="userBlock" id="<% out.print(i); %>"><% out.println(user); %></div>
                     <%
-                        for(int i=0;i<Integer.parseInt(a);i++)
-                        {
-                            %>
-                            <select onchange="Javascript:PlayerSelect.submit()" name="<% out.print("select"+i); %>">
-                            <%
-                        for(String s:users)
-                        {
-                            if(!(players.contains(s) && !players.get(i).equals(s)))
-                            {
-                            %>
-                            <option <%
-                                if(selectie.get(i).equals(s))
-                                {
-                                    out.print("selected");
-                                    players.set(i, s);
-                                }
-                                %>
-                                value="<% out.print(s); %>"><% out.print(s); %></option>
-                            <%
-                             
-                           }
+
+                            i++;
                         }
-                       %>
-                            </select>
-<%
-    }
-    %>
-    <input type="reset" value="reset" />
+                    %>
+                </div>
+
+            </div>
+            <br/>
+
+
         </form>
+                <button class="regularButton" id="previous" onclick="location.href='StartScreen.jsp'">vorige</button>
+        <button class="regularButton" id="next" onclick="submitForm()" name="ok">volgende</button>
     </body>
 </html>
