@@ -23,6 +23,7 @@ public class Game {
         this.players = players;
         this.date = Calendar.getInstance();
     }
+    
 
     /**
      * kaart wordt van deck gehaald en toegevoegd aan de hand van User user

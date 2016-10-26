@@ -14,7 +14,7 @@ body
     background-color: white;
     font-family: Helvetica;
 }
-#container{
+#container, #largeContainer, #gameContainer{
     position: relative;
     width: 400px;
     margin: 0 auto;
@@ -22,6 +22,51 @@ body
     border: 1px solid black;
     height: 400px;
     background-color: gray;
+}
+#largeContainer{
+    
+    width: 1024px;
+    height: 500px;
+    overflow-y: scroll;
+}
+#gameContainer{
+    width: 800px;
+    height: 504px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 10px;
+}
+#userBlockContainer{
+    width:900px;
+    min-height: 400px;   
+    position: relative;
+    margin: 0 auto;
+}
+.userBlock, .userBlockSelected{
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 10px;
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+}
+.userBlock:hover
+{
+    background-color: lightblue;
+}
+.userBlockSelected{
+    background-color: blue;
+}
+
+#next
+{
+    position: relative;
+    left: 600px;
+}
+#previous
+{
+    position: relative;
+    left: 400px;
 }
 
 
