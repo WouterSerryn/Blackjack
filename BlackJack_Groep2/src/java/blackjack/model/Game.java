@@ -1,6 +1,5 @@
 package blackjack.model;
 
-import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,7 +16,7 @@ public class Game {
     private Deck deck;
     private Calendar date;
 
-    public Game(ArrayList<User> players) throws URISyntaxException {
+    public Game(ArrayList<User> players) {
         this.dealer = new Dealer();
         this.deck = new Deck();
         this.players = players;
@@ -100,7 +99,8 @@ public class Game {
     }
 
     /**
-     * credits aftrekken/toevoegen van de balance van de spelers obv hun gamestate
+     * credits aftrekken/toevoegen van de balance van de spelers obv hun
+     * gamestate
      */
     public void distributePayment() {
         Iterator<User> it = players.iterator();
@@ -119,11 +119,22 @@ public class Game {
             }
         }
     }
-    
 
     public String getDate() {
         String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
         return formattedDate;
+    }
+
+    public Dealer getDealer() {
+        return dealer;
+    }
+
+    public ArrayList<User> getPlayers() {
+        return players;
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 
 }

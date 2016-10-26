@@ -30,5 +30,8 @@ public class Dealer {
     public void setMinimumDraw(int draw){
         this.minimumDraw = draw;
     }
-    
+
+    public Icon getIcon() {
+        return icon;
+    }
 }

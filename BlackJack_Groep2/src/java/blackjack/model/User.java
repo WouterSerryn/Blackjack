@@ -56,5 +56,15 @@ public class User {
     public int getBet() {
         return bet;
     }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public Icon getIcon() {
+        return icon;
+    }
+    
+    
     
 }

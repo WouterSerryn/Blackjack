@@ -1,8 +1,6 @@
 
 package blackjack.model;
 
-import java.net.URI;
-
 /**
  *
  * @author Chayenne Jacques
@@ -12,8 +10,8 @@ public class Card {
     private Suit suit;
     private Rank rank;
     private boolean visible;
-    private URI cardimage;
-    private URI backimage;
+    private String cardimage;
+    private String backimage;
 
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
@@ -48,5 +46,19 @@ public class Card {
     public void setVisibility(boolean visibility){
         visible=visibility;
     }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public String getCardimage() {
+        return cardimage;
+    }
+
+    public String getBackimage() {
+        return backimage;
+    }
+    
+    
     
 }
