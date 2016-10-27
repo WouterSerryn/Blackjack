@@ -25,7 +25,7 @@
             Een aas kan de waarde 1 of 11 hebben.
         </p>
             
-        <p>Mogelijkheden: <br>
+        <p> Mogelijkheden: <br>
             Heb je meteen 21 punten met de eerste 2 kaarten? Dan heb je Blacjack en krijg je direct 1,5 keer je inzet.
             Heb je met de eerste 2 kaarten een waarde lager dan 21 punten, dan kan je een extra kaart vragen (Hit). Je mag zoveel kaarten blijven vragen tot je 21 punten of meer hebt.
             Je mag ook passen (Stand).<br>

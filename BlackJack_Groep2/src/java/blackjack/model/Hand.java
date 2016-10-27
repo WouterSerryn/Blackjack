@@ -29,20 +29,19 @@ public class Hand {
      */
     public void evaluate(){
         int value=this.getValue();
-        Handstate handstate=null;
         if(value>21)
         {
-            handstate=Handstate.Busted;
+            this.setState(Handstate.Busted);
         }
         else if(value==21 && this.cards.size()==2)
         {
-           handstate=Handstate.Blackjack;
+           this.setState(Handstate.Blackjack);
         }
         else if(value==21 && this.cards.size()>2)
         {
-           handstate=Handstate.Stand;
+           this.setState(Handstate.Stand);
         }
-         this.setState(handstate);
+
     }
    
     public void setState(Handstate hs){

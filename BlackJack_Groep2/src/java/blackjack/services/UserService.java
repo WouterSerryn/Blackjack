@@ -13,7 +13,7 @@ import java.util.List;
 public class UserService {
     
     public static List <User> getUsers(){
-        return Conversion.convertResultsetToList(UserDAO.getUsers());
+        return Conversion.convertResultsetToListUsers(UserDAO.getUsers());
     }
     
     public static void addUser(String nickname, int balance, int iconId) {
