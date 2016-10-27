@@ -45,7 +45,7 @@
             window.index++;
              document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
            }
-           if(window.index==window.playerNames.length)
+           if(window.index===window.playerNames.length)
            {
                document.getElementById("betName").innerHTML="Ga verder?";
                document.getElementById("betInput").classList.remove("visble");
@@ -57,15 +57,6 @@
              
             
              
-           }
-           if(window.index==window.playerNames.length)
-           {
-               document.getElementById("betName").innerHTML="Ga verder?";
-               document.getElementById("betInput").classList.remove("visble");
-               document.getElementById("betInput").classList.add("hidden");
-               document.getElementById("betConfirm").innerHTML="Bevestigen";
-
-               window.index++;
            }
            else if(window.index>playerNames.length)
            {
