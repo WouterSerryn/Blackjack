@@ -87,5 +87,25 @@ public class Conversion {
         }
         return res;
     }
-}
 
+    public static User convertResultSetToUser(ResultSet rs) {
+        String nickname, iconname, iconpath;
+        int balance;
+        User user=null;
+        Icon icon=null;
+        try {
+            while (rs.next()) {
+                nickname = rs.getString("nickname");
+                balance = rs.getInt("balance");
+                iconname = rs.getString("name");
+                iconpath = rs.getString("path");
+                icon= new Icon(iconname, iconpath);
+                user = new User(nickname, balance, icon);
+            }
+        } catch (SQLException ex) {
+
+        }
+        return user;
+    }
+
+}

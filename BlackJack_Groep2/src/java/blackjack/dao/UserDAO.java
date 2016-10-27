@@ -66,4 +66,33 @@ public class UserDAO {
 
     }
 
+    public static ResultSet getUserIdByNickname(String nickname) {
+        String query = "SELECT Id from user WHERE nickname = " + nickname;
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static ResultSet getUserByNickname(String nickname) {
+        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and nickname = " + nickname;
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }

@@ -28,4 +28,8 @@ public class UserService {
         UserDAO.editUser(nickname, balance, iconId);
     }
     
+    public static User getUserByNickname(String nickname){
+        return Conversion.convertResultSetToUser(UserDAO.getUserByNickname(nickname));
+    }
+    
 }
