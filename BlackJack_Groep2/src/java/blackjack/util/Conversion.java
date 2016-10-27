@@ -1,6 +1,8 @@
 package blackjack.util;
 
+import blackjack.dao.GamestateDAO;
 import blackjack.model.Headuser;
+import blackjack.model.History;
 import blackjack.model.Icon;
 import blackjack.model.User;
 import java.sql.ResultSet;
@@ -91,21 +93,48 @@ public class Conversion {
     public static User convertResultSetToUser(ResultSet rs) {
         String nickname, iconname, iconpath;
         int balance;
-        User user=null;
-        Icon icon=null;
+        User user = null;
+        Icon icon = null;
         try {
             while (rs.next()) {
                 nickname = rs.getString("nickname");
                 balance = rs.getInt("balance");
                 iconname = rs.getString("name");
                 iconpath = rs.getString("path");
-                icon= new Icon(iconname, iconpath);
+                icon = new Icon(iconname, iconpath);
                 user = new User(nickname, balance, icon);
             }
         } catch (SQLException ex) {
 
         }
         return user;
+    }
+
+    public static List<History> convertResultsetToHistoryList(ResultSet rs) {
+        List<History> list = new ArrayList();
+        String nickname, iconname, iconpath, date, gamestate;
+        int balance, bet, gameid, gamestateid;
+
+        try {
+            while (rs.next()) {
+                gameid = rs.getInt("game.id");
+                date = rs.getString("date");
+                gamestate = rs.getString("gamestate.name");
+                nickname = rs.getString("nickname");
+                balance = rs.getInt("balance");
+                iconname = rs.getString("icon.name");
+                iconpath = rs.getString("icon.path");
+                bet = rs.getInt("bet");
+                
+                Icon icon = new Icon(iconname, iconpath);
+                User user = new User(nickname, balance, icon);
+                History history = new History(gameid, user, bet, balance, gamestate, date);
+                list.add(history);
+            }
+        } catch (SQLException ex) {
+
+        }
+        return list;
     }
 
 }
