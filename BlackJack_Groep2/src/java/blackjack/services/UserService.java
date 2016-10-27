@@ -16,7 +16,10 @@ public class UserService {
         return Conversion.convertResultsetToListUsers(UserDAO.getUsers());
     }
     
-    public static void addUser(String nickname, int balance, int iconId) {
+    public static void addUser(User user) {
+        String nickname = user.getNickname();
+        int balance = user.getBalance();
+        int iconId=1; //iconId van de default icon
         UserDAO.addUser(nickname, balance, iconId);
     }
     

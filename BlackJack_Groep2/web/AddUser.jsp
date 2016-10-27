@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form action="AddUserServlet" method="post">
             Naam: <input type="text" name="nickname" /><br>
             Credits: <input type="number" value="50" name="credits" /><br>
             <br>

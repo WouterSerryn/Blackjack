@@ -20,6 +20,14 @@
         <servlet-name>GameServlet</servlet-name>
         <servlet-class>blackjack.web.GameServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>blackjack.web.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>blackjack.web.AddUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ModifyIconServlet</servlet-name>
         <url-pattern>/ModifyIconServlet</url-pattern>
@@ -28,7 +36,6 @@
         <servlet-name>ModifyUserServlet</servlet-name>
         <url-pattern>/ModifyUserServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>GameBetServlet</servlet-name>
         <url-pattern>/GameBetServlet</url-pattern>
@@ -40,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>GameServlet</servlet-name>
         <url-pattern>/GameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/AddUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -31,10 +31,10 @@
                 <td><% user.getIcon().getIconName(); %></td>
                 <td><% user.getNickname(); %></td> 
                 <td><% user.getBalance();%></td>
-                <td><a href="EditUser.jsp?nickname=<% out.println(user.getNickname()); %>&iconname=<% out.println(user.getIcon().getIconName()); %>&balance=<% out.println(user.getBalance()); %>">Wijzig</a> <a href="deleteUser.jsp">Verwijder</a></td>
+                <td><a href="EditUser.jsp?nickname=<% out.println(user.getNickname()); %>&iconname=<% out.println(user.getIcon().getIconName()); %>&balance=<% out.println(user.getBalance()); %>">Wijzig</a> <a href="DeleteUserServlet?nickname=<% out.println(user.getNickname()); %>">Verwijder</a></td>
             </tr> <% } %>
         </table>
         <br>
-        <button name="Terug">Terug</button><button name="gebruikerToevoegen">Gebruiker toevoegen</button>
+        <button name="Terug" formaction="StartScreen.jsp">Terug</button><button name="gebruikerToevoegen" formaction="AddUser.jsp">Gebruiker toevoegen</button>
     </body>
 </html>
