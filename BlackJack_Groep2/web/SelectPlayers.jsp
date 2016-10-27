@@ -39,13 +39,14 @@
             users = [];
             function swapSelected(index, user)
             {
-
-
+                     document.getElementById("playerList").innerHTML="Volgorde: ";
+                   
                 if (document.getElementById(index).classList.contains("userBlock"))
                 {
-
+                    
                     if (selected < 4)
                     {
+                        
                         users.push(user)
                         document.getElementById(index).classList.remove("userBlock");
                         document.getElementById(index).classList.add("userBlockSelected");
@@ -67,9 +68,10 @@
                     window.selected--;
 
                 }
-
-                for (var i = users.length - 1; i >= 0; i--) {
+                   
+                for (var i = 0; i < users.length; i++) {
                     console.log(users[i]);
+                    document.getElementById("playerList").innerHTML +=" "+users[i];
                 }
             }
             function submitForm()
@@ -118,7 +120,12 @@
                         while (it.hasNext()) {
                             user = it.next();
                     %>
-                    <div onclick="swapSelected(<% out.print(i + "," + "'" + user + "'"); %>)" class="userBlock" id="<% out.print(i); %>"><% out.println(user); %></div>
+                    <div class="userBlockWrapper">
+                        <div onclick="swapSelected(<% out.print(i + "," + "'" + user + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
+                            <div class="userName"><% out.println(user); %></div><div class="userChips">246 chips</div><img class="userIcon" src="images/icons/thumper.jpg" />
+                        </div>
+                    <a href="EditIcon.jsp" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                    </div>
                     <%
 
                             i++;
@@ -131,7 +138,10 @@
 
 
         </form>
+                <div id="playerListWithButtons">
+                <div id="playerList">Volgorde: </div>
                 <button class="regularButton" id="previous" onclick="location.href='StartScreen.jsp'">vorige</button>
         <button class="regularButton" id="next" onclick="submitForm()" name="ok">volgende</button>
+                </div>
     </body>
 </html>
