@@ -91,7 +91,7 @@ public class UserDAO {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("getuserByNickname probleem");
         }
         return rs;
     }

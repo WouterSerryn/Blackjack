@@ -103,7 +103,7 @@ public class Conversion {
                 user = new User(nickname, balance, icon);
             }
         } catch (SQLException ex) {
-
+System.out.println("convertresultsettouser problem");
         }
         return user;
     }
