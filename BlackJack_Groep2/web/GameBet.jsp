@@ -41,16 +41,30 @@
                    form.appendChild(element);
                    console.log("bet"+(index+1));
                document.getElementById("bet"+(index+1)).innerHTML="ingezet: "+bet;
+
             window.index++;
              document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
            }
-           if(window.index===playerNames.length)
+           if(window.index==window.playerNames.length)
            {
                document.getElementById("betName").innerHTML="Ga verder?";
                document.getElementById("betInput").classList.remove("visble");
                document.getElementById("betInput").classList.add("hidden");
                document.getElementById("betConfirm").innerHTML="Bevestigen";
                document.getElementById("betConfirm").style.cssText="right: 35px;";
+            window.index++;
+            document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
+             
+            
+             
+           }
+           if(window.index==window.playerNames.length)
+           {
+               document.getElementById("betName").innerHTML="Ga verder?";
+               document.getElementById("betInput").classList.remove("visble");
+               document.getElementById("betInput").classList.add("hidden");
+               document.getElementById("betConfirm").innerHTML="Bevestigen";
+
                window.index++;
            }
            else if(window.index>playerNames.length)
@@ -75,10 +89,10 @@
                    i++;
                    user=it.next();
                    %>
-                   <div id="p<% out.print(i); %>" class="playerBlock">
+                   <div id="<%out.print("p"+i);%>" class="playerBlock">
                        <div class="userName"><% out.print(user.getNickname()); %></div>
                        <div class="userChips">chips: <%out.print(user.getBalance()); %> coins</div>
-                       <div id="bet<%out.print(i);%>" class="userBet"></div>
+                       <div id="<%out.print("bet"+i);%>" class="userBet"></div>
                    </div>
                    <%
                }
@@ -87,7 +101,7 @@
                    
             <div id="betBlock">
                 <div id="betName" class="userName">inzet <% out.println(nickNames.get(0)); %></div>
-                <div class="userChips"><input class="visible" id="betInput" size="10" type="number" max="<% out.print(players.get(0).getBalance()); %>" min="0" name="bet" value="1" /><button onclick="setBet()" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
+                <div class="userChips"><input class="visible" id="betInput" size="10" type="number" max="<%out.print(players.get(0).getBalance());%>" min="0" name="bet" value="1" /><button onclick="setBet()" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
                 
             </div>
                 <form method="post" action="GameBetServlet" id="formBet">
