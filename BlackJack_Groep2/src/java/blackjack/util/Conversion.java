@@ -1,6 +1,5 @@
 package blackjack.util;
 
-import blackjack.dao.GamestateDAO;
 import blackjack.model.Headuser;
 import blackjack.model.History;
 import blackjack.model.Icon;
@@ -97,11 +96,6 @@ public class Conversion {
         Icon icon = null;
         try {
             while (rs.next()) {
-                nickname = rs.getString("nickname");
-                balance = rs.getInt("balance");
-                iconname = rs.getString("name");
-                iconpath = rs.getString("path");
-                icon = new Icon(iconname, iconpath);
                 nickname = rs.getString("Nickname");
                 balance = rs.getInt("Balance");
                 iconname = rs.getString("icon.Name");
