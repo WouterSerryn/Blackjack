@@ -35,6 +35,25 @@ public class GameBetServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Game game=(Game)request.getServletContext().getAttribute("game");
+         List<String> bets = new ArrayList(request.getParameterMap().keySet());
+    ArrayList<User> players=game.getPlayers();
+        Iterator<User> it=players.iterator();
+        User user=null;
+        int i=0;
+        while(it.hasNext())
+        {
+            user=it.next();
+            user.setBet(Integer.parseInt(bets.get(i)));
+            user.setBalance(user.getBalance()-user.getBet());
+            i++;
+            
+        }
+        
+        
+        
+        
+       
        
     }
 

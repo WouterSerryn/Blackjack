@@ -70,10 +70,7 @@
 
                 var form = document.getElementById("userSelect");
 
-                // Create an element (IE)
-                //element = document.createElement("<input name='newfield' type='hidden' value='success' />");
-
-                // Create ane element for everyone else and set its attributes.
+                
                 for (var i = 0; i < users.length; i++) {
 
 
@@ -84,7 +81,7 @@
                     form.appendChild(element);
                     console.log("added");
                 }
-                // Add the input field to the form and submit
+               
                 if(users.length>0)
                 {
                 form.submit();

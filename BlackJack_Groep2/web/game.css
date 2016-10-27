@@ -159,6 +159,13 @@ left: 5px;
     position: absolute;
     top: 50px;
     left: 5px;
+    width: 100%;
+}
+.userBet{
+    position: absolute;
+    top: 80px;
+    left: 5px;
+    width: 100%;
 }
 .userIcon{
     position: absolute;
@@ -301,15 +308,28 @@ a
     height: 100px;
     background-color: blue;
 }
-#title
-{
+
+#betInput{
+   
+    width: 50px;
+    margin-top: 5px;
+    
+}
+#betConfirm{
     position: absolute;
-    top: 0px; left: 0px;
-    height: 30px;
-    background-color: gray;
-    border-bottom: 1px solid black;
-    color: white;
+    right: 10px;
+}
+.userConfirm{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
-    
+.visble
+{
+    visibility: visible;
+}
+.hidden{
+    visibility: hidden;
+}
 

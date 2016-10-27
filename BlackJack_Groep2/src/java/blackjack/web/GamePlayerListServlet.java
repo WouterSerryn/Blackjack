@@ -36,19 +36,28 @@ public class GamePlayerListServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         List<String> nickNames = new ArrayList(request.getParameterMap().keySet());
-        ArrayList<User> playerList=null;
-        Iterator<String>  it=nickNames.iterator();
+         List<String> parameterNames = new ArrayList(request.getParameterMap().keySet());
+    ArrayList<User>playerList=new ArrayList();
+    ArrayList<String>nickNames=new ArrayList();
+    Iterator<String> it=parameterNames.iterator();
+    while(it.hasNext())
+    {
+        String next=it.next();
+      playerList.add(UserService.getUserByNickname((String)request.getParameter(next))); 
+       nickNames.add((String)request.getParameter(next));
+    }
         
-        while(it.hasNext())
-        {
-           playerList.add(UserService.getUserByNickname(it.next())); 
-        }
+        
+        
+        
+        
+        
         Game game=Game.getGame();
         game.setPlayerList(playerList);
     
    
-    request.getServletContext().setAttribute("playerList",playerList);
+    request.getServletContext().setAttribute("game",game);
+    request.getServletContext().setAttribute("nickNames",nickNames);
     RequestDispatcher view=request.getRequestDispatcher("GameBet.jsp");
         view.forward(request,response);
     }
