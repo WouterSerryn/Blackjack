@@ -4,6 +4,8 @@
     Author     : Wouter
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="blackjack.services.UserService"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="blackjack.model.User"%>
@@ -12,19 +14,8 @@
 
 <%
     //int max=4;
-    ArrayList<String> users = new ArrayList<String>();
-    users.add("Speler1");
-    users.add("Speler2");
-    users.add("Speler3");
-    users.add("Speler4");
-    users.add("Speler5");
-    users.add("Speler6");
-    users.add("Speler7");
-    users.add("Speler8");
-    users.add("Speler9");
-    users.add("Speler10");
-    users.add("Speler11");
-    users.add("Speler12");
+    List<User> users = UserService.getUsers();
+    
 
 
 %>
@@ -39,14 +30,15 @@
             users = [];
             function swapSelected(index, user)
             {
-
-
+                     document.getElementById("playerList").innerHTML="Volgorde: ";
+                   
                 if (document.getElementById(index).classList.contains("userBlock"))
                 {
-
+                    
                     if (selected < 4)
                     {
-                        users.push(user)
+                        
+                        users.push(user);
                         document.getElementById(index).classList.remove("userBlock");
                         document.getElementById(index).classList.add("userBlockSelected");
                         window.selected = window.selected + 1;
@@ -67,9 +59,10 @@
                     window.selected--;
 
                 }
-
-                for (var i = users.length - 1; i >= 0; i--) {
+                   
+                for (var i = 0; i < users.length; i++) {
                     console.log(users[i]);
+                    document.getElementById("playerList").innerHTML +=" "+users[i];
                 }
             }
             function submitForm()
@@ -112,13 +105,18 @@
         <form id="userSelect" name="userSelect" action="Game.jsp" method="post">
             <div id="largeContainer">
                 <div id="userBlockContainer">
-                    <%  Iterator<String> it = users.iterator();
-                        String user;
+                    <%  Iterator<User> it = users.iterator();
+                        User user;
                         int i = 0;
                         while (it.hasNext()) {
                             user = it.next();
                     %>
-                    <div onclick="swapSelected(<% out.print(i + "," + "'" + user + "'"); %>)" class="userBlock" id="<% out.print(i); %>"><% out.println(user); %></div>
+                    <div class="userBlockWrapper">
+                        <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconimage()); %>" />
+                        </div>
+                            <a href="ModifyIconServlet.jsp?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                    </div>
                     <%
 
                             i++;
@@ -131,7 +129,10 @@
 
 
         </form>
+                <div id="playerListWithButtons">
+                <div id="playerList">Volgorde: </div>
                 <button class="regularButton" id="previous" onclick="location.href='StartScreen.jsp'">vorige</button>
         <button class="regularButton" id="next" onclick="submitForm()" name="ok">volgende</button>
+                </div>
     </body>
 </html>

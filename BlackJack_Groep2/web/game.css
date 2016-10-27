@@ -14,7 +14,7 @@ body
     background-color: white;
     font-family: Helvetica;
 }
-#container, #largeContainer, #gameContainer{
+#container, #largeContainer, #largeGameContainer, #gameContainer{
     position: relative;
     width: 400px;
     margin: 0 auto;
@@ -24,16 +24,22 @@ body
     background-color: gray;
 }
 #largeContainer{
-    
+    padding: 0px;
     width: 1024px;
     height: 500px;
     overflow-y: scroll;
 }
 #gameContainer{
+    
     width: 800px;
     height: 504px;
     border: 1px solid black;
     box-shadow: 2px 2px 10px;
+}
+#largeGameContainer{
+    padding: 0px;
+    width: 1024px;
+    height: 550px;
 }
 #userBlockContainer{
     width:900px;
@@ -41,22 +47,39 @@ body
     position: relative;
     margin: 0 auto;
 }
+.userBlockWrapper{
+    float: left;
+    position: relative;
+    height: 170px;
+    width: 170px;
+}
 .userBlock, .userBlockSelected{
     width: 150px;
     height: 150px;
     float: left;
     margin: 10px;
     position: relative;
-    background-color: white;
+      background-color: white;
+      -webkit-transition: all 0.2s ease-in;
     border: 1px solid black;
-}
-.userBlock:hover
-{
-    background-color: lightblue;
+    
 }
 .userBlockSelected{
     background-color: blue;
+     
 }
+
+.userBlock:hover
+{
+    
+    background-color: lightblue;
+    -webkit-transition: all 0.2s ease-out;
+ 
+}
+.userBlockSelected:hover{
+    background-color: gray;
+}
+
 
 #next
 {
@@ -68,12 +91,6 @@ body
     position: relative;
     left: 400px;
 }
-
-
-
-
-
-
 .regularButton
 {
     padding: 5px;
@@ -83,12 +100,90 @@ body
     text-align: center;
     background-color: white;
 }
+.editIcon{
+   
+    
+    
+    
+    
+   position: absolute;
+   float: left;
+   right: 10px;
+   bottom: 10px;
+   -webkit-transition: all 2s;
+ 
+}
+.userBlockWrapper .editIcon{
+    opacity: 0.1;
+    -webkit-transition: all 0.2s ease-out;
+}
+.userBlockWrapper:hover .editIcon{
+opacity: 1;
+    -webkit-transition: all 0.2s ease-in;
+  
+   
+}
+.editIconImage{
+    width: 30px;
+    height: 30px;
+    
+}
+.editIconImage:hover
+{
+    display: block;
+    
+    
+}
 .regularButton:hover
 {
     background-color: gray;
     
 }
+.userName{
+    position: absolute;
+ width: calc(100% - 5px);
+ border-bottom: 1px solid black;
+ height: auto;
+ background-color: darkgray;
+ color: white;
+ 
+left: 5px;
+ margin-left: -5px;
+ padding-left: 5px;
+ padding-bottom: 5px;
+ top: 0px;
+ padding-top: 5px;
+}
+.userChips{
+    position: absolute;
+    top: 50px;
+    left: 5px;
+}
+.userIcon{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 75px;
+    height: 75px;
+    
+}
 
+#playerListWithButtons{
+    position: relative;
+    
+    height: 100px;
+    width: 1024px;
+    margin: 0 auto;
+    
+   
+   
+}
+#playerList
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
 a
 {
     text-decoration: none;
