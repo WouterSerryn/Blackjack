@@ -4,9 +4,17 @@
         <servlet-name>ModifyIconServlet</servlet-name>
         <servlet-class>blackjack.web.ModifyIconServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModifyUser</servlet-name>
+        <servlet-class>blackjack.web.ModifyUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ModifyIconServlet</servlet-name>
         <url-pattern>/ModifyIconServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModifyUserServlet</servlet-name>
+        <url-pattern>/ModifyUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
