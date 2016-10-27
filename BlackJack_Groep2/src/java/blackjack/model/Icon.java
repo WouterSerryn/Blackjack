@@ -17,11 +17,11 @@ public class Icon {
         this.iconimage = iconimage;
     }
     
-    public String getIconname(){
+    public String getIconName(){
         return this.iconname;
     }
     
-    public String getIconimage(){
+    public String getIconImage(){
         return this.iconimage;
     }
     

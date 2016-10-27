@@ -1,6 +1,7 @@
 
 package blackjack.util;
 
+import blackjack.model.Headuser;
 import blackjack.model.Icon;
 import blackjack.model.User;
 import java.sql.ResultSet;
@@ -34,5 +35,32 @@ public class Conversion {
         }
         return list;
     }
+        public static Headuser convertResultSetToHeaduser(ResultSet rs)
+        {
+            Headuser headuser=null;
+            Icon icon=null;
+            String nickname, iconname, iconpath, email, password;
+            int balance;
+            try{
+                while(rs.next())
+                {
+                   nickname=rs.getString("Nickname");
+                   iconname=rs.getString("Iconname");
+                   iconpath=rs.getString("Iconpath");
+                   email=rs.getString("Emailadres");
+                   password=rs.getString("Wachtwoord");
+                   balance=rs.getInt("Balance");
+                icon=new Icon(iconname,iconpath);
+            headuser=new Headuser(nickname,balance,password,email,icon);
+             
+                }
+            }
+            catch(SQLException ex)
+            {
+                
+            }
+           return headuser;
+            
+        }
             
 }

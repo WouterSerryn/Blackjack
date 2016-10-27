@@ -4,7 +4,13 @@
     Author     : Chayenne Jacques
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="blackjack.model.Icon"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<Icon>iconList=(List<Icon>)request.getServletContext().getAttribute("iconList"); 
+    String current=request.getParameter("currentIcon");
+    %>
 <!DOCTYPE html>
 <html>
     <head>

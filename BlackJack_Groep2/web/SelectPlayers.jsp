@@ -4,6 +4,8 @@
     Author     : Wouter
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="blackjack.services.UserService"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="blackjack.model.User"%>
@@ -12,19 +14,8 @@
 
 <%
     //int max=4;
-    ArrayList<String> users = new ArrayList<String>();
-    users.add("Speler1");
-    users.add("Speler2");
-    users.add("Speler3");
-    users.add("Speler4");
-    users.add("Speler5");
-    users.add("Speler6");
-    users.add("Speler7");
-    users.add("Speler8");
-    users.add("Speler9");
-    users.add("Speler10");
-    users.add("Speler11");
-    users.add("Speler12");
+    List<User> users = UserService.getUsers();
+    
 
 
 %>
@@ -47,7 +38,7 @@
                     if (selected < 4)
                     {
                         
-                        users.push(user)
+                        users.push(user);
                         document.getElementById(index).classList.remove("userBlock");
                         document.getElementById(index).classList.add("userBlockSelected");
                         window.selected = window.selected + 1;
@@ -114,17 +105,17 @@
         <form id="userSelect" name="userSelect" action="Game.jsp" method="post">
             <div id="largeContainer">
                 <div id="userBlockContainer">
-                    <%  Iterator<String> it = users.iterator();
-                        String user;
+                    <%  Iterator<User> it = users.iterator();
+                        User user;
                         int i = 0;
                         while (it.hasNext()) {
                             user = it.next();
                     %>
                     <div class="userBlockWrapper">
-                        <div onclick="swapSelected(<% out.print(i + "," + "'" + user + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.println(user); %></div><div class="userChips">246 chips</div><img class="userIcon" src="images/icons/thumper.jpg" />
+                        <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconimage()); %>" />
                         </div>
-                    <a href="EditIcon.jsp" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                            <a href="ModifyIconServlet.jsp?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
                     <%
 
