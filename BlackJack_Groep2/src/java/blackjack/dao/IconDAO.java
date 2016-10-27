@@ -26,7 +26,7 @@ public class IconDAO {
         return rs;
     }
 
-    public static void addIcon(String name, String path){
+    public static void addIcon(String name, String path) {
         String query = "INSERT into icon (name, path) VALUES ('" + name + "','" + path + "')";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
@@ -37,6 +37,21 @@ public class IconDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static ResultSet getIconIdByIconName(String iconname) {
+        String query = "SELECT Id from icon WHERE Name = " + iconname;
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
     }
 
 }

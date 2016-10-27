@@ -34,37 +34,33 @@ public class Conversion {
         }
         return list;
     }
-        public static Headuser convertResultSetToHeaduser(ResultSet rs)
-        {
-            Headuser headuser=null;
-            Icon icon=null;
-            String nickname, iconname, iconpath, email, password;
-            int balance;
-            try{
-                while(rs.next())
-                {
-                   nickname=rs.getString("Nickname");
-                   iconname=rs.getString("Iconname");
-                   iconpath=rs.getString("Iconpath");
-                   email=rs.getString("Emailadres");
-                   password=rs.getString("Wachtwoord");
-                   balance=rs.getInt("Balance");
-                icon=new Icon(iconname,iconpath);
-            headuser=new Headuser(nickname,balance,password,email,icon);
-             
-                }
+
+    public static Headuser convertResultSetToHeaduser(ResultSet rs) {
+        Headuser headuser = null;
+        Icon icon = null;
+        String nickname, iconname, iconpath, email, password;
+        int balance;
+        try {
+            while (rs.next()) {
+                nickname = rs.getString("Nickname");
+                iconname = rs.getString("Iconname");
+                iconpath = rs.getString("Iconpath");
+                email = rs.getString("Emailadres");
+                password = rs.getString("Wachtwoord");
+                balance = rs.getInt("Balance");
+                icon = new Icon(iconname, iconpath);
+                headuser = new Headuser(nickname, balance, password, email, icon);
+
             }
-            catch(SQLException ex)
-            {
-                
-            }
-           return headuser;
-            
+        } catch (SQLException ex) {
+
         }
-            
+        return headuser;
+
+    }
 
     public static List<Icon> convertResultSetToListIcons(ResultSet rs) {
-        List <Icon> list = new ArrayList();
+        List<Icon> list = new ArrayList();
         String iconname, iconpath;
 
         try {
@@ -80,4 +76,16 @@ public class Conversion {
         return list;
     }
 
+    public static int convertResultSetToInt(ResultSet rs) {
+        int res = -1;
+        try {
+            while (rs.next()) {
+                res = rs.getInt("Id");
+            }
+        } catch (SQLException ex) {
+
+        }
+        return res;
+    }
 }
+
