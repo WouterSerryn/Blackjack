@@ -82,7 +82,7 @@ public class UserDAO {
     }
 
     public static ResultSet getUserByNickname(String nickname) {
-        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and nickname = " + nickname;
+        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and Nickname = '" + nickname+"'";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
         Statement stmt = null;
@@ -91,7 +91,7 @@ public class UserDAO {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("getuserByNickname probleem");
         }
         return rs;
     }

@@ -5,6 +5,7 @@ import blackjack.dao.GamestateDAO;
 import blackjack.dao.HistoryDAO;
 import blackjack.dao.UserDAO;
 import blackjack.model.Game;
+import blackjack.model.History;
 import blackjack.model.User;
 import blackjack.util.Conversion;
 import java.util.Iterator;
@@ -29,6 +30,10 @@ public class HistoryService {
 
             HistoryDAO.addHistory(userid, gameId, bet, balance, gamestateId);
         }
+    }
+    
+    public static List<History> getAllHistory(){
+        return Conversion.convertResultsetToHistoryList(HistoryDAO.getAllHistory());
     }
 
 }

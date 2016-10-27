@@ -10,17 +10,29 @@ import java.util.Iterator;
  * @author Chayenne Jacques
  */
 public class Game {
-
+    public static Game game;
     private Dealer dealer;
     private ArrayList<User> players;
     private Deck deck;
     private Calendar date;
 
-    public Game(ArrayList<User> players) {
+    public Game() {
+        
         this.dealer = new Dealer();
-        this.deck = new Deck();
-        this.players = players;
+        this.deck = new Deck();  
         this.date = Calendar.getInstance();
+    }
+    public void setPlayerList(ArrayList<User> players)
+    {
+        this.players=players;
+    }
+    public static Game getGame()
+    {
+        if(game==null)
+        {
+            game=new Game();
+        }
+        return game;
     }
     
 

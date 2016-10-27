@@ -9,6 +9,7 @@ import blackjack.model.Icon;
 import blackjack.services.IconService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,13 +35,33 @@ public class ModifyIconServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         String iconName=request.getParameter("iconName");
+         List<Icon>iconList;
+         
+        if(request.getParameter("nickName")!=null)
+        {
         String nickName=request.getParameter("nickName");
-        List<Icon>iconList;
+        request.getServletContext().setAttribute("nickName",nickName);
+        }
+       
         if(request.getServletContext().getAttribute("iconList")==null)
         {
-          request.getServletContext().setAttribute("iconList",IconService.getIcons());
+         request.getServletContext().setAttribute("iconList",IconService.getIcons());
         }
+        iconList=(List<Icon>)(request.getServletContext().getAttribute("iconList"));
+       Iterator<Icon> it=iconList.iterator();
+       Icon icon;
+       while(it.hasNext())
+       {
+          icon=it.next();
+          if(icon.getIconName().equals(iconName))
+          {
+              request.getServletContext().setAttribute("icon",icon);
+              System.out.println("------");
+              System.out.println("----");
+          }
+       }
        
         RequestDispatcher view=request.getRequestDispatcher("EditIcon.jsp");
         view.forward(request,response);

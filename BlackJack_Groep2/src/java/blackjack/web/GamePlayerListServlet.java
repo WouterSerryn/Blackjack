@@ -5,8 +5,14 @@
  */
 package blackjack.web;
 
+import blackjack.model.Game;
+import blackjack.model.User;
+import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Chayenne Jacques
+ * @author Wouter
  */
-public class ModifyUserServlet extends HttpServlet {
+public class GamePlayerListServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,10 +36,30 @@ public class ModifyUserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-
-        }
+         List<String> parameterNames = new ArrayList(request.getParameterMap().keySet());
+    ArrayList<User>playerList=new ArrayList();
+    ArrayList<String>nickNames=new ArrayList();
+    Iterator<String> it=parameterNames.iterator();
+    while(it.hasNext())
+    {
+        String next=it.next();
+      playerList.add(UserService.getUserByNickname((String)request.getParameter(next))); 
+       nickNames.add((String)request.getParameter(next));
+    }
+        
+        
+        
+        
+        
+        
+        Game game=Game.getGame();
+        game.setPlayerList(playerList);
+    
+   
+    request.getServletContext().setAttribute("game",game);
+    request.getServletContext().setAttribute("nickNames",nickNames);
+    RequestDispatcher view=request.getRequestDispatcher("GameBet.jsp");
+        view.forward(request,response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -45,6 +71,12 @@ public class ModifyUserServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -56,13 +88,6 @@ public class ModifyUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String iconname = request.getParameter("iconname");
-        String nickname = request.getParameter("nickname");
-        int balance = Integer.parseInt(request.getParameter("balance"));
-
-        RequestDispatcher view = request.getRequestDispatcher("EditUser.jsp");
-        view.forward(request, response);
         processRequest(request, response);
     }
 

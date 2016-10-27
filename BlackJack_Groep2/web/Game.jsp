@@ -15,7 +15,11 @@
     <body>
         <div id="largeGameContainer">
         <div id="gameContainer">
-            <img src="images/blackjackTable.png" />
+            <div id="p1" class="playerBlock">1</div>
+            <div id="p2" class="playerBlock">2</div>
+            <div id="p3" class="playerBlock">3</div>
+            <div id="p4" class="playerBlock">4</div>
+            <div id="betBlock"></div>
         </div>
         </div>
     </body>

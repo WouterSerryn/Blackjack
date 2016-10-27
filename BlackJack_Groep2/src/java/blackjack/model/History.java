@@ -11,14 +11,16 @@ public class History {
     private User user;
     private int bet;
     private int balance;
-    private Gamestate gamestateId;
+    private String gamestate;
+    private String date;
 
-    public History(int gameId, User user, int bet, int balance, Gamestate gamestateId) {
+    public History(int gameId, User user, int bet, int balance, String gamestate, String date) {
         this.gameId = gameId;
         this.user = user;
         this.bet = bet;
         this.balance = balance;
-        this.gamestateId = gamestateId;
+        this.gamestate = gamestate;
+        this.date = date;
     }
     
     

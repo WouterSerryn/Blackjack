@@ -5,8 +5,20 @@
         <servlet-class>blackjack.web.ModifyIconServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ModifyUser</servlet-name>
+        <servlet-name>ModifyUserServlet</servlet-name>
         <servlet-class>blackjack.web.ModifyUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GameBetServlet</servlet-name>
+        <servlet-class>blackjack.web.GameBetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GamePlayerListServlet</servlet-name>
+        <servlet-class>blackjack.web.GamePlayerListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GameServlet</servlet-name>
+        <servlet-class>blackjack.web.GameServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ModifyIconServlet</servlet-name>
@@ -15,6 +27,19 @@
     <servlet-mapping>
         <servlet-name>ModifyUserServlet</servlet-name>
         <url-pattern>/ModifyUserServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>GameBetServlet</servlet-name>
+        <url-pattern>/GameBetServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GamePlayerListServlet</servlet-name>
+        <url-pattern>/GamePlayerListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GameServlet</servlet-name>
+        <url-pattern>/GameServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

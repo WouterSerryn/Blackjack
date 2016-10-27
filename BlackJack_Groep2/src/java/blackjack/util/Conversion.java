@@ -102,10 +102,15 @@ public class Conversion {
                 iconname = rs.getString("name");
                 iconpath = rs.getString("path");
                 icon = new Icon(iconname, iconpath);
+                nickname = rs.getString("Nickname");
+                balance = rs.getInt("Balance");
+                iconname = rs.getString("icon.Name");
+                iconpath = rs.getString("icon.Path");
+                icon= new Icon(iconname, iconpath);
                 user = new User(nickname, balance, icon);
             }
         } catch (SQLException ex) {
-
+System.out.println("convertresultsettouser problem");
         }
         return user;
     }
