@@ -4,12 +4,14 @@
     Author     : Chayenne Jacques
 --%>
 
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="blackjack.model.Icon"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     List<Icon>iconList=(List<Icon>)request.getServletContext().getAttribute("iconList"); 
-    String current=request.getParameter("currentIcon");
+    String current=request.getParameter("iconName");
+    String nickName=request.getParameter("nickName");
     %>
 <!DOCTYPE html>
 <html>
@@ -19,11 +21,21 @@
     </head>
     <body>
         <form action="" method="post">
-            Naam: <input type="text" readonly value="naam" name="nickname" /><br>
+            Naam: <input type="text" readonly value="<% out.println(nickName); %>" name="nickname" /><br>
             Icoon: 
             <select name="icon">
-                <option value="1">Belle</option>
-            <option value="2">Rapunzel</option>
+                <%
+                    Iterator<Icon> it=iconList.iterator();
+                    Icon icon;
+                    while(it.hasNext())
+                    {
+                        icon=it.next();
+                        %>
+                        <option value="<% out.println(icon.getIconName()); %>"></option>
+                        <%
+                    }
+                    
+                    %>
             </select>
             <img src="images/belle.jpg" />
             <br>

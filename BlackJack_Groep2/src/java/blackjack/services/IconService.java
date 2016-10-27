@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class IconService {
     
-    public List<Icon> getIcons(){
+    public static List<Icon> getIcons(){
         return Conversion.convertResultSetToListIcons(IconDAO.getIcons());
     }
     

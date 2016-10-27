@@ -113,7 +113,7 @@
                     %>
                     <div class="userBlockWrapper">
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconimage()); %>" />
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
                             <a href="ModifyIconServlet.jsp?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
