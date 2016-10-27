@@ -95,10 +95,10 @@ public class Conversion {
         Icon icon=null;
         try {
             while (rs.next()) {
-                nickname = rs.getString("nickname");
-                balance = rs.getInt("balance");
-                iconname = rs.getString("name");
-                iconpath = rs.getString("path");
+                nickname = rs.getString("Nickname");
+                balance = rs.getInt("Balance");
+                iconname = rs.getString("icon.Name");
+                iconpath = rs.getString("icon.Path");
                 icon= new Icon(iconname, iconpath);
                 user = new User(nickname, balance, icon);
             }

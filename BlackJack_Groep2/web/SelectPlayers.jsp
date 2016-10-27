@@ -102,7 +102,7 @@
         <title>Spelers selecteren</title>
     </head>
     <body>
-        <form id="userSelect" name="userSelect" action="Game.jsp" method="post">
+        <form id="userSelect" name="userSelect" action="GamePlayerListServlet" method="post">
             <div id="largeContainer">
                 <div id="userBlockContainer">
                     <%  Iterator<User> it = users.iterator();
@@ -115,7 +115,7 @@
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
                             <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
-                            <a href="ModifyIconServlet.jsp?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                            <a href="ModifyIconServlet?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
                     <%
 

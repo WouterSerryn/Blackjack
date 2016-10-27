@@ -5,10 +5,12 @@
  */
 package blackjack.web;
 
-import blackjack.model.Icon;
-import blackjack.services.IconService;
+import blackjack.model.Game;
+import blackjack.model.User;
+import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wouter
  */
-public class ModifyIconServlet extends HttpServlet {
+public class GamePlayerListServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,36 +36,20 @@ public class ModifyIconServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+         List<String> nickNames = new ArrayList(request.getParameterMap().keySet());
+        ArrayList<User> playerList=null;
+        Iterator<String>  it=nickNames.iterator();
         
-        String iconName=request.getParameter("iconName");
-         List<Icon>iconList;
-         
-        if(request.getParameter("nickName")!=null)
+        while(it.hasNext())
         {
-        String nickName=request.getParameter("nickName");
-        request.getServletContext().setAttribute("nickName",nickName);
+           playerList.add(UserService.getUserByNickname(it.next())); 
         }
-       
-        if(request.getServletContext().getAttribute("iconList")==null)
-        {
-         request.getServletContext().setAttribute("iconList",IconService.getIcons());
-        }
-        iconList=(List<Icon>)(request.getServletContext().getAttribute("iconList"));
-       Iterator<Icon> it=iconList.iterator();
-       Icon icon;
-       while(it.hasNext())
-       {
-          icon=it.next();
-          if(icon.getIconName().equals(iconName))
-          {
-              request.getServletContext().setAttribute("icon",icon);
-              System.out.println("------");
-              System.out.println("----");
-          }
-       }
-       
-        RequestDispatcher view=request.getRequestDispatcher("EditIcon.jsp");
+        Game game=Game.getGame();
+        game.setPlayerList(playerList);
+    
+   
+    request.getServletContext().setAttribute("playerList",playerList);
+    RequestDispatcher view=request.getRequestDispatcher("GameBet.jsp");
         view.forward(request,response);
     }
 

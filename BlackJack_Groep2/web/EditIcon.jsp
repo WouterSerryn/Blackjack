@@ -10,8 +10,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     List<Icon>iconList=(List<Icon>)request.getServletContext().getAttribute("iconList"); 
-    String current=request.getParameter("iconName");
-    String nickName=request.getParameter("nickName");
+    Icon icon=(Icon)request.getServletContext().getAttribute("icon");
+    String nickName=(String)request.getServletContext().getAttribute("nickName");
     %>
 <!DOCTYPE html>
 <html>
@@ -20,24 +20,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="" method="post">
+        <form name="iconForm" action="ModifyIconServlet" method="post">
             Naam: <input type="text" readonly value="<% out.println(nickName); %>" name="nickname" /><br>
             Icoon: 
-            <select name="icon">
+            <select name="iconName" onchange="Javascript:iconForm.submit()">
                 <%
                     Iterator<Icon> it=iconList.iterator();
-                    Icon icon;
+                    Icon itIcon;
                     while(it.hasNext())
                     {
-                        icon=it.next();
+                        itIcon=it.next();
                         %>
-                        <option value="<% out.println(icon.getIconName()); %>"></option>
+                        <option <%
+                            if(itIcon.getIconName().equals(icon.getIconName()))
+                            {
+                                out.println("selected");
+                            }
+                            %> value="<% out.println(itIcon.getIconName()); %>"><% out.println(itIcon.getIconName()); %></option>
                         <%
                     }
                     
                     %>
             </select>
-            <img src="images/belle.jpg" />
+                    <img src="<% out.println(icon.getIconImage()); %>" />
             <br>
             <button name="Terug">Terug</button><input type="submit" value="Bevestigen">
         </form>

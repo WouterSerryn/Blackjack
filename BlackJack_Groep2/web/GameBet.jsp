@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Game
-    Created on : 24-okt-2016, 8:07:57
+    Document   : GameBet
+    Created on : 27-okt-2016, 15:23:16
     Author     : Wouter
 --%>
 
@@ -19,7 +19,7 @@
             <div id="p2" class="playerBlock">2</div>
             <div id="p3" class="playerBlock">3</div>
             <div id="p4" class="playerBlock">4</div>
-            <div id="betBlock"></div>
+            <div id="betBlock"><div id="title">inzet:</div><input type="number" name="bet" value="1" /></div>
         </div>
         </div>
     </body>
