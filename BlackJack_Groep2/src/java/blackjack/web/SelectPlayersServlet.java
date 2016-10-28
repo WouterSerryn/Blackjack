@@ -5,24 +5,23 @@
  */
 package blackjack.web;
 
-import blackjack.model.Game;
 import blackjack.model.User;
+import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Wouter
  */
-public class GameBetServlet extends HttpServlet {
+public class SelectPlayersServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,33 +34,20 @@ public class GameBetServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Game game=(Game)request.getServletContext().getAttribute("game");
-        game.getDeck().fillDeck();
-        game.getDeck().shuffle();
-         List<String> bets = new ArrayList(request.getParameterMap().keySet());
-    ArrayList<User> players=game.getPlayers();
-        Iterator<User> it=players.iterator();
-        User user=null;
-        int i=0;
-        while(it.hasNext())
+        HttpSession session=request.getSession();
+        List<User> users;
+        if(session==null)
         {
-            user=it.next();
-            user.setBet(Integer.parseInt(bets.get(i)));
-            user.setBalance(user.getBalance()-user.getBet());
-            i++;
-            
+       users=UserService.getUsersExcludingHeadUser();
         }
-        
-        
-        
-        RequestDispatcher view=request.getRequestDispatcher("GameDistribute.jsp");
+        else
+        {
+       users = UserService.getUsers();
+        }
+       request.setAttribute("users",users);
+       
+       RequestDispatcher view=request.getRequestDispatcher("SelectPlayers.jsp");
         view.forward(request,response);
-        
-        
-        
-        
-       
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

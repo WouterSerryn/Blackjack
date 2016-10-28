@@ -5,14 +5,8 @@
  */
 package blackjack.web;
 
-import blackjack.model.Game;
-import blackjack.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wouter
  */
-public class GameBetServlet extends HttpServlet {
+public class GameDistributeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,33 +29,19 @@ public class GameBetServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Game game=(Game)request.getServletContext().getAttribute("game");
-        game.getDeck().fillDeck();
-        game.getDeck().shuffle();
-         List<String> bets = new ArrayList(request.getParameterMap().keySet());
-    ArrayList<User> players=game.getPlayers();
-        Iterator<User> it=players.iterator();
-        User user=null;
-        int i=0;
-        while(it.hasNext())
-        {
-            user=it.next();
-            user.setBet(Integer.parseInt(bets.get(i)));
-            user.setBalance(user.getBalance()-user.getBet());
-            i++;
-            
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet GameDistributeServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet GameDistributeServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        
-        
-        
-        RequestDispatcher view=request.getRequestDispatcher("GameDistribute.jsp");
-        view.forward(request,response);
-        
-        
-        
-        
-       
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

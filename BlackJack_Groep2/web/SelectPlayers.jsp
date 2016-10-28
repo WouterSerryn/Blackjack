@@ -14,7 +14,7 @@
 
 <%
     //int max=4;
-    List<User> users = UserService.getUsers();
+    List<User> users = (List<User>)request.getAttribute("users");
     
 
 
