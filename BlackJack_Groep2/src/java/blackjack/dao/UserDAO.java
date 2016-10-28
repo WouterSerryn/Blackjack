@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class UserDAO {
 
     public static ResultSet getUsers() {
-        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId";
+        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId order by nickname";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         Statement stmt = null;
         ResultSet rs = null;
