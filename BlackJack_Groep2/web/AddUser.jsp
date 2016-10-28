@@ -16,7 +16,7 @@
             Naam: <input type="text" name="nickname" /><br>
             Credits: <input type="number" value="50" name="credits" /><br>
             <br>
-            <button name="Terug">Terug</button><input type="submit" value="Bevestigen" />
+            <button name="Terug" formaction="AccountManagement.jsp">Terug</button><input type="submit" value="Bevestigen" />
         </form>
     </body>
 </html>

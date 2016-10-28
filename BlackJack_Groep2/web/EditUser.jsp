@@ -37,9 +37,9 @@
 
                 %>
             </select>
-            <img src="images/belle.jpg" />
+
             <br>
-            <button name="Terug">Terug</button><input type="submit" value="Bevestigen" />
+            <button name="Terug" formaction="AccountManagement.jsp">Terug</button><input type="submit" value="Bevestigen" />
         </form>
     </body>
 </html>
