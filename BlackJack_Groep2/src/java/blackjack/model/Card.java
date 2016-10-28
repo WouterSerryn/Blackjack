@@ -16,6 +16,7 @@ public class Card {
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
+        this.cardimage="images/cards/"+this.rank.name()+"_of_"+this.suit.name()+".png";
         visible = true;
     }
     

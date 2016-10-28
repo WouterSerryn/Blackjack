@@ -35,6 +35,7 @@ public class GameServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Game game=(Game)request.getServletContext().getAttribute("game");
         
     }
 
