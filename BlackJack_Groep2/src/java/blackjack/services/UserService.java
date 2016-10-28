@@ -39,4 +39,8 @@ public class UserService {
         return Conversion.convertResultSetToUser(UserDAO.getUserByNickname(nickname));
     }
     
+    public static List<User> getUsersExcludingHeadUser(){
+        return Conversion.convertResultsetToListUsers(UserDAO.getUsersExcludingHeadUser());
+    }
+    
 }

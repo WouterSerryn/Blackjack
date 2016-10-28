@@ -82,7 +82,7 @@ public class UserDAO {
     }
 
     public static ResultSet getUserByNickname(String nickname) {
-        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and Nickname = '" + nickname+"'";
+        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and Nickname = '" + nickname + "'";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
         Statement stmt = null;
@@ -92,6 +92,20 @@ public class UserDAO {
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
             System.out.println("getuserByNickname probleem");
+        }
+        return rs;
+    }
+
+    public static ResultSet getUsersExcludingHeadUser() {
+        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and user.id NOT IN (SELECT id from headuser) order by nickname";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return rs;
     }
