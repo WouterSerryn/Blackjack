@@ -71,6 +71,9 @@
        
         <div id="largeGameContainer">
         <div id="gameContainer">
+            <div id="dealer">
+                <img id="dealerIcon" src="images/jafar.png" />
+            </div>
             <%
                Iterator<User> it=players.iterator();
                User user=null;
@@ -81,11 +84,18 @@
                    user=it.next();
                    %>
                    <div id="<%out.print("p"+i);%>" class="playerBlock">
-                       <div class="userName"><% out.print(user.getNickname()); %></div>
-                       <div class="userChips">chips: <%out.print(user.getBalance()); %> coins</div>
-                       <img class="userIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
+                       <div class="userName"><%out.print(user.getBalance()+" coins"); %>
+                           <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
+                           
+                        </div>   
+                           <span class="tooltip"><% out.print(user.getNickname()); %></span>
+<!--                       <div class="userName"><% out.print(user.getNickname()); %></div>-->
+                       
+                       
+                      
                        <div id="<%out.print("bet"+i);%>" class="userBet"></div>
                    </div>
+                   
                    <%
                }
                 %>
@@ -93,7 +103,7 @@
                    
             <div id="betBlock">
                 <div id="betName" class="userName">inzet <% out.println(nickNames.get(0)); %></div>
-                <div class="userChips"><input class="visible" id="betInput" size="10" type="number" max="<%out.print(players.get(0).getBalance());%>" min="0" name="bet" value="1" /><button onclick="setBet()" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
+                <div class="userChips"><input class="visible regularButton" id="betInput" size="10" type="number" max="<%out.print(players.get(0).getBalance());%>" min="0" name="bet" value="1" /><button onclick="setBet()" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
                 
             </div>
                 <form method="post" action="GameBetServlet" id="formBet">

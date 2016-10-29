@@ -7,15 +7,6 @@ and open the template in the editor.
     Created on : 24-okt-2016, 8:13:39
     Author     : Wouter
 */
-:root {
-    --c1: #fbbe4f;
-    --c2: #76d0c0;
-    --c3: #1ab28a;
-    --c4: #746bab;
-    --c5: #4a62d8;
-    --fullwidth: 100%;
-    --radius: 5px 0px 0px 5px 5px;
-}
 body
 {
     width: 100%;
@@ -27,12 +18,10 @@ body
     position: relative;
     width: 400px;
     margin: 0 auto;
-    margin-top: 0px;
+    margin-top: 20px;
     border: 1px solid black;
     height: 400px;
-    -webkit-border-radius: 0px 0px 10px 10px;
-
-    background-color: var(--c2);
+    background-color: gray;
 }
 #largeContainer{
     padding: 0px;
@@ -41,7 +30,7 @@ body
     overflow-y: scroll;
 }
 #gameContainer{
- margin-top: 20px;
+    
     width: 800px;
     height: 504px;
     border: 1px solid black;
@@ -58,47 +47,38 @@ body
     min-height: 400px;   
     position: relative;
     margin: 0 auto;
-    
 }
 .userBlockWrapper{
     float: left;
     position: relative;
-    height: 140px;
+    height: 170px;
     width: 170px;
 }
 .userBlock, .userBlockSelected{
     width: 150px;
-    height: 120px;
-    left: 0px;
-    top: 0px;
+    height: 150px;
     float: left;
     margin: 10px;
     position: relative;
-    background-color: white;
-    -webkit-transition: all 0.2s ease-in;
+      background-color: white;
+      -webkit-transition: all 0.2s ease-in;
     border: 1px solid black;
-        -webkit-border-radius: 0px 0px 10px 10px;
-        -webkit-box-shadow: 2px 2px 5px black;
-
+    
 }
 .userBlockSelected{
-    background-color: var(--c4);
-   -webkit-transition: all 0.2s ease-in;
-     -webkit-box-shadow: 1px 1px 3px black;
-      left: 1px;
- top: 1px;
+    background-color: blue;
+     
 }
 
 .userBlock:hover
 {
-
-    background-color: var(--c1);
-    -webkit-transition: all 0.2s ease-out;
     
-
+    background-color: lightblue;
+    -webkit-transition: all 0.2s ease-out;
+ 
 }
 .userBlockSelected:hover{
-    background-color: var(--c4);
+    background-color: gray;
 }
 
 
@@ -119,82 +99,71 @@ body
     color: black;
     font-size: 15px;
     text-align: center;
-    background-color: var(--c2);
+    background-color: white;
 }
 .editIcon{
-
-
-
-
-
-    position: absolute;
-    float: left;
-    right: 10px;
-    bottom: 10px;
-    -webkit-transition: all 2s;
-
+   
+    
+    
+    
+    
+   position: absolute;
+   float: left;
+   right: 10px;
+   bottom: 10px;
+   -webkit-transition: all 2s;
+ 
 }
 .userBlockWrapper .editIcon{
     opacity: 0.1;
     -webkit-transition: all 0.2s ease-out;
 }
 .userBlockWrapper:hover .editIcon{
-    opacity: 1;
+opacity: 1;
     -webkit-transition: all 0.2s ease-in;
-
-
+  
+   
 }
 .editIconImage{
     width: 30px;
     height: 30px;
-
+    
 }
 .editIconImage:hover
 {
     display: block;
-
-
+    
+    
 }
 .regularButton:hover
 {
-    background-color: var(--c1);
-
+    background-color: gray;
+    
 }
 .userName{
     position: absolute;
-    width: calc(100% - 5px);
-    border: 1px solid black;
-    height: auto;
-    background-color: var(--c3);
-    color: white;
-    
-
-    left: 4px;
-    margin-left: -5px;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    top: -1px;
-    padding-top: 5px;
+ width: calc(100% - 5px);
+ border-bottom: 1px solid black;
+ height: auto;
+ background-color: darkgray;
+ color: white;
+ 
+left: 5px;
+ margin-left: -5px;
+ padding-left: 5px;
+ padding-bottom: 5px;
+ top: 0px;
+ padding-top: 5px;
 }
-.userChips, .userChipsRight{
+.userChips{
     position: absolute;
     top: 50px;
     left: 5px;
     width: 100%;
 }
-.userChipsRight{
-    
-    top: 5px; 
-    
-    text-align: right;
- 
-    width: 68%;
-    left: 30%;
-  
-}
 .userBet{
     position: absolute;
-    top: 40px;
+    top: 80px;
     left: 5px;
     width: 100%;
 }
@@ -204,29 +173,31 @@ body
     bottom: 5px;
     width: 75px;
     height: 75px;
-
+    
 }
-
+.userIconSmall{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 50px;
+    height: 50px;
+}
 
 #playerListWithButtons{
     position: relative;
-
+    
     height: 100px;
     width: 1024px;
     margin: 0 auto;
-
-
-
+    
+   
+   
 }
 #playerList
 {
     position: absolute;
-    top: -36px;
-    left: 10px;
-    padding: 5px;
-    background-color: var(--c2);
-    border: 1px solid black;
-    -webkit-border-radius: 0px 0px 5px 5px;
+    top: 0px;
+    left: 0px;
 }
 a
 {
@@ -240,7 +211,7 @@ a
 }
 #playButton{
     width: 120px;
-
+ 
     position: absolute;
     left: 140px;
     bottom: 20px;
@@ -253,7 +224,7 @@ a
 }
 #userMenu{
     display: none;
-    position: absolute;
+        position: absolute;
     top: 20px;
     right: 20px;
     list-style: none;
@@ -277,8 +248,8 @@ a
     font-size: 35px;
     text-align: center;
     padding: 0;
-
-
+ 
+    
 }
 #startImage{
     width: 200px;
@@ -302,65 +273,38 @@ a
     position: relative;
     float: left;
     display: block;
-
+   
     background-size: 40px 40px;
     background-repeat: no-repeat;
 }
 .playerBlock
 {
-    position: absolute;
+   position: absolute;
     width: 160px;
-    height: 200px;
-    color: white;
- 
+    height: 160px;
+   color: white;
     
-
-}
-.playerIcon{
-    position: absolute;
-    right: -1px;
-    top: -20px;
-    width: 50px;
-    height: 50px;
 }
 #p1
 {
-
-    bottom: 120px;
+     
+    bottom: 200px;
     left: 0px;
 }
 #p2
 {
-
-    bottom: 50px;
+     
+    bottom: 130px;
     left: 220px;
 }
 #p3{
-    bottom:50px;
+    bottom:130px;
     right:220px;
 }
 #p4{
-    bottom: 120px;
+    bottom: 200px;
     right: 0px;
-
-}
-
-#dealer
-{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    color: white;
-    top: 0px;
-    left:300px;
-}
-#dealerIcon
-{
-    width: 120px;
-    height: 120px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    
 }
 #betBlock
 {
@@ -369,16 +313,14 @@ a
     bottom: 10px;
     width: 150px;
     height: 100px;
-    background-color: var(--c4);
-    -webkit-border-radius: 0px 0px 10px 10px;
-    
+    background-color: blue;
 }
 
 #betInput{
-
+   
     width: 50px;
-
-
+    margin-top: 5px;
+    
 }
 #betConfirm{
     position: absolute;
@@ -397,18 +339,4 @@ a
 .hidden{
     visibility: hidden;
 }
-
-
-.tooltip {
-    display: block;
-    position: absolute;
-    background-color: var(--c1);
-    border: 1px solid black;
-    border-radius: 5px 5px 0px 0px;
-    padding: 2px 4px;
-    top:-25px;
-    left: -1px;
-  
-}
-
 

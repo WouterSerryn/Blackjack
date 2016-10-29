@@ -62,7 +62,15 @@
                    
                 for (var i = 0; i < users.length; i++) {
                     console.log(users[i]);
-                    document.getElementById("playerList").innerHTML +=" "+users[i];
+                    if(i>0)
+                    {
+                      var  splitter=" |";
+                    }
+                    else
+                    {
+                        var splitter="";
+                    }
+                    document.getElementById("playerList").innerHTML +=splitter+" "+users[i];
                 }
             }
             function submitForm()
@@ -110,7 +118,7 @@
                     %>
                     <div class="userBlockWrapper">
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
                             <a href="ModifyIconServlet?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
