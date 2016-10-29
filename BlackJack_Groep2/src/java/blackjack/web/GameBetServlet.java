@@ -46,7 +46,7 @@ public class GameBetServlet extends HttpServlet {
         while(it.hasNext())
         {
             user=it.next();
-            user.setBet(Integer.parseInt(bets.get(i)));
+            user.setBet(Integer.parseInt(request.getParameter(bets.get(i))));
             user.setBalance(user.getBalance()-user.getBet());
             i++;
             

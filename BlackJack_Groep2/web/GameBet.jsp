@@ -39,10 +39,11 @@
                     element.setAttribute("type", "hidden");
                     element.setAttribute("value", bet);
                    form.appendChild(element);
-                   console.log("bet"+(index+1));
-               document.getElementById("bet"+(index+1)).innerHTML="ingezet: "+bet;
+                   window.index++;
+                   console.log("bet"+(index));
+               document.getElementById("bet"+(index)).innerHTML="ingezet: "+bet;
 
-            window.index++;
+            
              document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
            }
            if(window.index===window.playerNames.length)
@@ -53,7 +54,7 @@
                document.getElementById("betConfirm").innerHTML="Bevestigen";
                document.getElementById("betConfirm").style.cssText="right: 35px;";
             window.index++;
-            document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
+          
              
             
              
