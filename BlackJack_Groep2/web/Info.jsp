@@ -36,6 +36,6 @@
             Heeft de dealer "bust": alle spelers zonder "bust" krijgen 1 keer hun inzet terug.</p>
         
             <p>De dealer is als laatste aan de beurt en deze speelt met vaste regels: bij 16 punten of minder zal deze om een extra kaart vragen, bij 17 of meer zal deze passen.</p>
-
+            <button name="Terug" formaction="StartScreen.jsp">Terug</button>
             </body>
 </html>

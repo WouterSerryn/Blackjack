@@ -36,6 +36,10 @@
         <servlet-name>GameDistributeServlet</servlet-name>
         <servlet-class>blackjack.web.GameDistributeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HistoryServlet</servlet-name>
+        <servlet-class>blackjack.web.HistoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ModifyIconServlet</servlet-name>
         <url-pattern>/ModifyIconServlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>GameDistributeServlet</servlet-name>
         <url-pattern>/GameDistributeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryServlet</servlet-name>
+        <url-pattern>/HistoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
