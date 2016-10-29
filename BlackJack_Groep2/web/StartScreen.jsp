@@ -10,14 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="game.css" type="text/css" rel="stylesheet" />
-        <title>JSP Page</title>
+        <title>Start</title>
     </head>
     <body>
         <div id="container">
             <div id="startTitle">Blackjack</div>
             <div id="startImage"></div>
             <a id="infoButton" class="regularButton" title="info" href="" >?</a>
-            <a id="loginButton" class="regularButton" title="Inloggen" href="" >Inloggen</a>
+            <a id="loginButton" class="regularButton" title="Inloggen" href="LoginScreen.html" >Inloggen</a>
             <a id="playButton" class="regularButton" title="Kies spelers" href="SelectPlayerServlet" >Kies spelers</a>  
             
             <div id="userMenu"><img src="images/gear.png" class="menuImage" />
