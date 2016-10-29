@@ -83,6 +83,7 @@
                    <div id="<%out.print("p"+i);%>" class="playerBlock">
                        <div class="userName"><% out.print(user.getNickname()); %></div>
                        <div class="userChips">chips: <%out.print(user.getBalance()); %> coins</div>
+                       <img class="userIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                        <div id="<%out.print("bet"+i);%>" class="userBet"></div>
                    </div>
                    <%

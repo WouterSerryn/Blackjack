@@ -18,7 +18,7 @@
             <div id="startImage"></div>
             <a id="infoButton" class="regularButton" title="info" href="" >?</a>
             <a id="loginButton" class="regularButton" title="Inloggen" href="LoginScreen.html" >Inloggen</a>
-            <a id="playButton" class="regularButton" title="Kies spelers" href="SelectPlayerServlet" >Kies spelers</a>  
+            <a id="playButton" class="regularButton" title="Kies spelers" href="SelectPlayersServlet" >Kies spelers</a>  
             
             <div id="userMenu"><img src="images/gear.png" class="menuImage" />
                 <ul id="menuList">

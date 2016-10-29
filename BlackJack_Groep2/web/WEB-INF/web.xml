@@ -29,7 +29,7 @@
         <servlet-class>blackjack.web.AddUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SelectPlayerServlet</servlet-name>
+        <servlet-name>SelectPlayersServlet</servlet-name>
         <servlet-class>blackjack.web.SelectPlayersServlet</servlet-class>
     </servlet>
     <servlet>
@@ -69,8 +69,8 @@
         <url-pattern>/AddUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SelectPlayerServlet</servlet-name>
-        <url-pattern>/SelectPlayerServlet</url-pattern>
+        <servlet-name>SelectPlayersServlet</servlet-name>
+        <url-pattern>/SelectPlayersServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GameDistributeServlet</servlet-name>
