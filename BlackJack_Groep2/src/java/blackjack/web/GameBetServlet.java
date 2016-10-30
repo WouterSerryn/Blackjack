@@ -36,8 +36,10 @@ public class GameBetServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Game game=(Game)request.getServletContext().getAttribute("game");
+        game.getDeck().clear();
         game.getDeck().fillDeck();
         game.getDeck().shuffle();
+        game.getDealer().getHand().clear();
          List<String> bets = new ArrayList(request.getParameterMap().keySet());
     ArrayList<User> players=game.getPlayers();
         Iterator<User> it=players.iterator();
@@ -46,12 +48,15 @@ public class GameBetServlet extends HttpServlet {
         while(it.hasNext())
         {
             user=it.next();
+            user.getHand().clear();
             user.setBet(Integer.parseInt(request.getParameter(bets.get(i))));
             user.setBalance(user.getBalance()-user.getBet());
             i++;
             
         }
-        
+        game.cardDistribution();
+      
+        request.getServletContext().setAttribute("game",game);
         
         
         RequestDispatcher view=request.getRequestDispatcher("GameDistribute.jsp");

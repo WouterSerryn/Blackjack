@@ -16,7 +16,10 @@ public class Card {
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
-        this.cardimage="images/cards/"+this.rank.name()+"_of_"+this.suit.name()+".png";
+        this.cardimage="images/cards/"+this.rank.name().toLowerCase()+"_of_"+this.suit.name().toLowerCase()+".png";
+        
+        this.backimage="images/cards/backimage.png";
+        
         visible = true;
     }
     
@@ -34,6 +37,10 @@ public class Card {
      */
     public int getValue(){
         return this.rank.getValue();
+    }
+    public void setRankToSmallAce()
+    {
+        this.rank=Rank.SmallAce;
     }
     
     /**

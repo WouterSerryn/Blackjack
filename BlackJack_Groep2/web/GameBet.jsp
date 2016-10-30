@@ -28,9 +28,16 @@
          
         function setBet()
         { 
+            bet=document.getElementById("betInput").value;
+            if(bet>document.getElementById("betInput").max)
+            {
+                alert("U hebt niet zoveel credits!");
+            }
+            else
+            {
             var form=document.getElementById("formBet");
         console.log(window.index);
-            bet=document.getElementById("betInput").value;
+            
             console.log(bet);
            if(window.index<window.playerNames.length)
            {
@@ -41,7 +48,7 @@
                    form.appendChild(element);
                    window.index++;
                    console.log("bet"+(index));
-               document.getElementById("bet"+(index)).innerHTML="ingezet: "+bet;
+               document.getElementById("bet"+(index)).innerHTML="inzet: "+bet;
 
             
              document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
@@ -63,6 +70,7 @@
            {
                form.submit();
            }
+            }
            
         }
     </script>
@@ -89,12 +97,12 @@
                            <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                            
                         </div>   
-                           <span class="tooltip"><% out.print(user.getNickname()); %></span>
+                           <span class="playerName"><% out.print(user.getNickname()); %></span>
 <!--                       <div class="userName"><% out.print(user.getNickname()); %></div>-->
                        
                        
                       
-                       <div id="<%out.print("bet"+i);%>" class="userBet"></div>
+                       <div id="<%out.print("bet"+i);%>" class="playerBet">inzet: </div>
                    </div>
                    
                    <%

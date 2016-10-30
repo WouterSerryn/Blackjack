@@ -31,7 +31,25 @@ public class Hand {
         int value=this.getValue();
         if(value>21)
         {
+            boolean foundReduceableAce=false;
+            Card c;
+           Iterator<Card> it=this.cards.iterator();
+           while(it.hasNext())
+           {
+               c=it.next();
+               if(c.getValue()==11)
+               {
+                   c.setRankToSmallAce();
+                   foundReduceableAce=true;
+                   System.out.println("nu");
+                   break;
+               }
+               
+           }
+           if(!foundReduceableAce)
+           {
             this.setState(Handstate.Busted);
+           }
         }
         else if(value==21 && this.cards.size()==2)
         {
@@ -42,6 +60,11 @@ public class Hand {
            this.setState(Handstate.Stand);
         }
 
+    }
+    public void clear()
+    {
+        this.cards=new ArrayList<>();
+        this.state=null;
     }
    
     public void setState(Handstate hs){

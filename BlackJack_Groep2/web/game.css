@@ -309,7 +309,7 @@ a
 .playerBlock
 {
     position: absolute;
-    width: 160px;
+    width: 140px;
     height: 200px;
     color: white;
  
@@ -318,8 +318,8 @@ a
 }
 .playerIcon{
     position: absolute;
-    right: -1px;
-    top: -20px;
+    right: 5px;
+    top: -21px;
     width: 50px;
     height: 50px;
 }
@@ -349,10 +349,10 @@ a
 {
     position: absolute;
     width: 200px;
-    height: 200px;
+    height: 300px;
     color: white;
-    top: 0px;
-    left:300px;
+    top: 50px;
+    left:375px;
 }
 #dealerIcon
 {
@@ -360,7 +360,7 @@ a
     height: 120px;
     position: absolute;
     top: 0px;
-    left: 0px;
+    left:-125px;
 }
 #betBlock
 {
@@ -399,10 +399,10 @@ a
 }
 
 
-.tooltip {
+.playerName {
     display: block;
     position: absolute;
-    background-color: var(--c1);
+    background-color: var(--c2);
     border: 1px solid black;
     border-radius: 5px 5px 0px 0px;
     padding: 2px 4px;
@@ -410,5 +410,57 @@ a
     left: -1px;
   
 }
+.playerBet{
+    display: block;
+    position: absolute;
+    background-color: var(--c2);
+    border: 1px solid black;
+    border-radius: 0px 0px 5px 5px;
+    padding: 2px 4px;
+    top:29px;
+    left: -1px;
+}
+
+.cardsBlock{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    
+    top: 60px;
+}
+.card{
+    position: relative;
+    width: 24px;
+    overflow: visible;
+    float: left;
+    margin-bottom: 10px;
+       
+}
+.cardImage{
+        position: relative;
+    float: left;
+    width: 50px;
+    -webkit-box-shadow: 2px 2px 3px black;
+ 
+}
+.amountAndState{
+    position: absolute;
+    top: 75px;
+    left: 20px;
+    z-index: 100;
+    opacity: 0.0;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+    background-color: var(--c2);
+}
+.playerBlock:hover .amountAndState{
+    opacity: 0.8;
+}
+
 
 

@@ -15,6 +15,10 @@ public class Deck {
     public Deck() {
         this.cards = new ArrayList();
     }
+    public void clear()
+    {
+        this.cards=new ArrayList<>();
+    }
 /**
  * alle suites en ranks overlopen en in een kaart steken, zodat je 52 verschillende kaarten krijgt
  */
@@ -22,8 +26,11 @@ public class Deck {
         Card c;
         for (Suit s : Suit.values()) {
             for (Rank r : Rank.values()) {
+                if(r!=Rank.SmallAce)
+                {
                 c = new Card(s, r);
                 cards.add(c);
+                }
             }
         }
     }

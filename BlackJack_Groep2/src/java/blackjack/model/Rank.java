@@ -14,7 +14,7 @@ public enum Rank {
      * aan elke rank wordt een waarde toegekend
      * de constructor plaatst dan de waarde van de rank in value
      */
-    Ace(11), 
+    SmallAce(1), 
     Two(2), 
     Three(3), 
     Four(4), 
@@ -26,7 +26,8 @@ public enum Rank {
     Ten(10), 
     Jack(10), 
     Queen(10), 
-    King(10);
+    King(10),
+    Ace(11);
    private int value;
     
     /**
@@ -43,5 +44,9 @@ public enum Rank {
     public int getValue()
     {
         return this.value;
+    }
+    public void setValue(int value)
+    {
+        this.value=value;
     }
 }

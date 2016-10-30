@@ -103,6 +103,10 @@
 
 
             }
+            function noCoins()
+            {
+                alert("u bent bankroet!");
+            }
         </script>
         <title>Spelers selecteren</title>
     </head>
@@ -115,6 +119,8 @@
                         int i = 0;
                         while (it.hasNext()) {
                             user = it.next();
+                            if(user.getBalance()>0)
+                            {
                     %>
                     <div class="userBlockWrapper">
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
@@ -123,6 +129,18 @@
                             <a href="ModifyIconServlet?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
                     <%
+                            }
+                            else
+                            {
+                            %>
+                    <div class="userBlockWrapper">
+                        <div onclick="noCoins();" class="userBlock" id="<% out.print(i); %>">
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                        </div>
+                            <a href="ModifyIconServlet?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                    </div>
+                    <%
+                            }
 
                             i++;
                         }
