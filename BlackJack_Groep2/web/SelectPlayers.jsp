@@ -126,7 +126,7 @@
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
                             <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
-                            <a href="ModifyIconServlet?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                            <a href="ModifyIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance=<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
                     <%
                             }
@@ -135,9 +135,9 @@
                             %>
                     <div class="userBlockWrapper">
                         <div onclick="noCoins();" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                            <div class="userName"><% out.print(user.getNickname()); %></div><div class="userChips"><% out.print(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
-                            <a href="ModifyIconServlet?nickName=<% out.println(user.getNickname()); %>&iconName=<% out.println(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                            <a href="ModifyIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
                     </div>
                     <%
                             }
