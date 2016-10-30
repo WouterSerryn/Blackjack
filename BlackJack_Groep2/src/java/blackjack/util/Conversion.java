@@ -100,11 +100,11 @@ public class Conversion {
                 balance = rs.getInt("Balance");
                 iconname = rs.getString("icon.Name");
                 iconpath = rs.getString("icon.Path");
-                icon= new Icon(iconname, iconpath);
+                icon = new Icon(iconname, iconpath);
                 user = new User(nickname, balance, icon);
             }
         } catch (SQLException ex) {
-System.out.println("convertresultsettouser problem");
+            System.out.println("convertresultsettouser problem");
         }
         return user;
     }
@@ -124,7 +124,7 @@ System.out.println("convertresultsettouser problem");
                 iconname = rs.getString("icon.name");
                 iconpath = rs.getString("icon.path");
                 bet = rs.getInt("bet");
-                
+
                 Icon icon = new Icon(iconname, iconpath);
                 User user = new User(nickname, balance, icon);
                 History history = new History(gameid, user, bet, balance, gamestate, date);
@@ -136,4 +136,18 @@ System.out.println("convertresultsettouser problem");
         return list;
     }
 
+    public static Icon convertResultSetToIcon(ResultSet rs) {
+        String iconname, iconpath;
+        Icon icon=null;
+
+        try {
+            while (rs.next()) {
+                iconname = rs.getString("icon.name");
+                iconpath = rs.getString("icon.path");
+                icon = new Icon(iconname, iconpath);
+            }
+        } catch (SQLException ex) {
+
+        } return icon;
+    }
 }

@@ -7,6 +7,7 @@ package blackjack.web;
 
 import blackjack.model.Icon;
 import blackjack.model.User;
+import blackjack.services.IconService;
 import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,7 +40,7 @@ public class AddUserServlet extends HttpServlet {
             String nickname = request.getParameter("nickname");
             int credits = Integer.parseInt(request.getParameter("credits"));
             
-            Icon icon = new Icon("default", "images/belle.jpg");
+             Icon icon= IconService.getIconByName(nickname);
             
             User user= new User(nickname,credits, icon);
             

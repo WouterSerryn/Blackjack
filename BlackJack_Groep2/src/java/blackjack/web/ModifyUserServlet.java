@@ -5,6 +5,9 @@
  */
 package blackjack.web;
 
+import blackjack.services.IconService;
+import blackjack.services.UserService;
+import blackjack.util.Conversion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -32,6 +35,16 @@ public class ModifyUserServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            String iconname = request.getParameter("iconname");
+            String nickname = request.getParameter("nickname");
+            int balance = Integer.parseInt(request.getParameter("balance"));
+            int iconID = IconService.getIdByIconName(iconname);
+
+            UserService.editUser(nickname, balance, iconID);
+
+            RequestDispatcher view = request.getRequestDispatcher("EditUser.jsp");
+            view.forward(request, response);
 
         }
     }
@@ -57,12 +70,6 @@ public class ModifyUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String iconname = request.getParameter("iconname");
-        String nickname = request.getParameter("nickname");
-        int balance = Integer.parseInt(request.getParameter("balance"));
-
-        RequestDispatcher view = request.getRequestDispatcher("EditUser.jsp");
-        view.forward(request, response);
         processRequest(request, response);
     }
 

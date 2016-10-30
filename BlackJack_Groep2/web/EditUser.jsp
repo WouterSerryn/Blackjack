@@ -4,6 +4,7 @@
     Author     : Chayenne Jacques
 --%>
 
+<%@page import="blackjack.services.IconService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="blackjack.model.Icon"%>
@@ -12,6 +13,11 @@
 <% String nickname = request.getParameter("nickname");
     String iconname = request.getParameter("iconname");
     int balance = Integer.parseInt(request.getParameter("balance"));
+        if(request.getServletContext().getAttribute("iconList")==null)
+    {
+        List<Icon> iconList=IconService.getIcons();
+        request.getServletContext().setAttribute("iconList",iconList);
+    }
     List<Icon> iconList = (List<Icon>)request.getServletContext().getAttribute("iconList"); %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +26,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="#" method="post">
+        <form action="ModifyUserServlet" method="post">
             Naam: <input type="text" readonly value="<% out.println(nickname); %>" name="nickname" /><br>
             Credits: <input type="text" value="<% out.println(balance); %>" name="credits" /><br>
             Icoon: 

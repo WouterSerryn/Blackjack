@@ -6,7 +6,9 @@
 package blackjack.web;
 
 import blackjack.model.Icon;
+import blackjack.model.User;
 import blackjack.services.IconService;
+import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
@@ -35,36 +37,19 @@ public class ModifyIconServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        String iconname = request.getParameter("iconname");
+        String nickname = request.getParameter("nickname");
+        User user = UserService.getUserByNickname(nickname);
         
-        String iconName=request.getParameter("iconName");
-         List<Icon>iconList;
-         
-        if(request.getParameter("nickName")!=null)
-        {
-        String nickName=request.getParameter("nickName");
-        request.getServletContext().setAttribute("nickName",nickName);
-        }
-       
-        if(request.getServletContext().getAttribute("iconList")==null)
-        {
-         request.getServletContext().setAttribute("iconList",IconService.getIcons());
-        }
-        iconList=(List<Icon>)(request.getServletContext().getAttribute("iconList"));
-       Iterator<Icon> it=iconList.iterator();
-       Icon icon;
-       while(it.hasNext())
-       {
-          icon=it.next();
-          if(icon.getIconName().equals(iconName))
-          {
-              request.getServletContext().setAttribute("icon",icon);
-              System.out.println("------");
-              System.out.println("----");
-          }
-       }
-       
-        RequestDispatcher view=request.getRequestDispatcher("EditIcon.jsp");
-        view.forward(request,response);
+        int balance = user.getBalance();
+
+        int iconID = IconService.getIdByIconName(iconname);
+
+        UserService.editUser(nickname, balance, iconID);
+        
+        RequestDispatcher view = request.getRequestDispatcher("EditIcon.jsp");
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

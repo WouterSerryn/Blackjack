@@ -54,4 +54,18 @@ public class IconDAO {
         return rs;
     }
 
+    public static ResultSet getIconByName(String iconname) {
+        String query = "SELECT * from icon WHERE Name = " + iconname;
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }

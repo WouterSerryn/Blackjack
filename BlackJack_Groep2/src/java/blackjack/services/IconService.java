@@ -24,4 +24,8 @@ public class IconService {
         return Conversion.convertResultSetToInt(IconDAO.getIconIdByIconName(iconname));
     }
     
+    public static Icon getIconByName(String iconname){
+        return Conversion.convertResultSetToIcon(IconDAO.getIconByName(iconname));
+    }
+    
 }
