@@ -42,13 +42,13 @@
                             {
                                 out.println("selected");
                             }
-                            %> value="<% out.println(itIcon.getIconName()); %>"><% out.println(itIcon.getIconName()); %></option>
+                            %> value="<% out.print(itIcon.getIconName()); %>"><% out.print(itIcon.getIconName()); %></option>
                         <%
                     }
                     
                     %>
             </select>
-                    <img src="<% out.println(icon.getIconImage()); %>" />
+                    <img src="<% out.print(icon.getIconImage()); %>" />
             <br>
             <button name="Terug" formaction="AccountManagement.jsp">Terug</button><input type="submit" value="Bevestigen">
         </form>

@@ -28,10 +28,10 @@
                 while (it.hasNext()) {
                     User user = it.next(); %>
             <tr>
-                <td><% user.getIcon().getIconName(); %></td>
-                <td><% user.getNickname(); %></td> 
-                <td><% user.getBalance();%></td>
-                <td><a href="EditUser.jsp?nickname=<% out.println(user.getNickname()); %>&iconname=<% out.println(user.getIcon().getIconName()); %>&balance=<% out.println(user.getBalance()); %>">Wijzig</a> <a href="DeleteUserServlet?nickname=<% out.println(user.getNickname()); %>">Verwijder</a></td>
+                <td><% out.print(user.getIcon().getIconName()); %></td>
+                <td><% out.print(user.getNickname()); %></td> 
+                <td><% out.print(user.getBalance()); %></td>
+                <td><a href="EditUser.jsp?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance=<% out.print(user.getBalance()); %>">Wijzig</a> <a href="DeleteUserServlet?nickname=<% out.print(user.getNickname()); %>">Verwijder</a></td>
             </tr> <% } %>
         </table>
         <br>

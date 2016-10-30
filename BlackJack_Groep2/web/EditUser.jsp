@@ -27,8 +27,8 @@
     </head>
     <body>
         <form action="ModifyUserServlet" method="post">
-            Naam: <input type="text" readonly value="<% out.println(nickname); %>" name="nickname" /><br>
-            Credits: <input type="text" value="<% out.println(balance); %>" name="credits" /><br>
+            Naam: <input type="text" readonly value="<% out.print(nickname); %>" name="nickname" /><br>
+            Credits: <input type="text" value="<% out.print(balance); %>" name="credits" /><br>
             Icoon: 
             <select name="icon">
                 <%
@@ -37,7 +37,7 @@
                     while (it.hasNext()) {
                         icon = it.next();
                 %>
-                <option value="<% out.println(icon.getIconName()); %>"><% out.println(icon.getIconName()); %></option>
+                <option value="<% out.print(icon.getIconName()); %>"><% out.print(icon.getIconName()); %></option>
                 <%
                     }
 
