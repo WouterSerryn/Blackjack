@@ -36,6 +36,7 @@ public class SelectPlayersServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session=request.getSession();
         String headuserName=(String)session.getAttribute("headuserName");
+        System.out.println(headuserName);
         List<User> users;
         
         if(headuserName==null)
