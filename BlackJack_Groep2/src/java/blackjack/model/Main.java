@@ -5,7 +5,9 @@
  */
 package blackjack.model;
 
+import blackjack.services.HistoryService;
 import blackjack.services.UserService;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,16 +22,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
-        List<User> users = UserService.getUsers();
-        Iterator<User> it = users.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next().getNickname());
-        }
         
-        
-        
-        
+   
     }
 
 }
