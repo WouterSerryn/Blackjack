@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,17 +39,29 @@ public class ModifyIconServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String iconname = request.getParameter("iconname");
+        String iconname = request.getParameter("newIconName");
         String nickname = request.getParameter("nickname");
         User user = UserService.getUserByNickname(nickname);
-        
-        int balance = user.getBalance();
 
-        int iconID = IconService.getIdByIconName(iconname);
+        Icon icon = IconService.getIconByName(iconname);
 
-        UserService.editUser(nickname, balance, iconID);
-        
-        RequestDispatcher view = request.getRequestDispatcher("EditIcon.jsp");
+        UserService.editUser(user);
+
+        request.setAttribute("icon", icon);
+        request.setAttribute("nickname", nickname);
+
+        HttpSession session = request.getSession();
+
+        List<User> users;
+
+        if (session == null) {
+            users = UserService.getUsersExcludingHeadUser();
+        } else {
+            users = UserService.getUsers();
+        }
+        request.getServletContext().setAttribute("users", users);
+
+        RequestDispatcher view = request.getRequestDispatcher("SelectPlayers.jsp");
         view.forward(request, response);
     }
 

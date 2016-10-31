@@ -35,7 +35,9 @@ public class SelectPlayersServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session=request.getSession();
+        
         List<User> users;
+       
         if(session==null)
         {
        users=UserService.getUsersExcludingHeadUser();
@@ -44,7 +46,7 @@ public class SelectPlayersServlet extends HttpServlet {
         {
        users = UserService.getUsers();
         }
-       request.setAttribute("users",users);
+       request.getServletContext().setAttribute("users",users);
        
        RequestDispatcher view=request.getRequestDispatcher("SelectPlayers.jsp");
         view.forward(request,response);

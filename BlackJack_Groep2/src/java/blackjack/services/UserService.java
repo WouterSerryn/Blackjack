@@ -2,6 +2,7 @@
 package blackjack.services;
 
 import blackjack.dao.UserDAO;
+import blackjack.model.Icon;
 import blackjack.model.User;
 import blackjack.util.Conversion;
 import java.util.List;
@@ -27,7 +28,11 @@ public class UserService {
         UserDAO.removeUser(nickname);
     }
     
-    public static void editUser(String nickname, int balance, int iconId){
+    public static void editUser(User user){
+        String nickname = user.getNickname();
+        int balance = user.getBalance();
+        String iconname = user.getIcon().getIconName();
+        int iconId = IconService.getIdByIconName(iconname);
         UserDAO.editUser(nickname, balance, iconId);
     }
     

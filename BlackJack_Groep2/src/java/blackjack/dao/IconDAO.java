@@ -40,7 +40,7 @@ public class IconDAO {
     }
 
     public static ResultSet getIconIdByIconName(String iconname) {
-        String query = "SELECT Id from icon WHERE Name = " + iconname;
+        String query = "SELECT Id from icon WHERE Name = '" + iconname+"'";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
         Statement stmt = null;
@@ -55,7 +55,7 @@ public class IconDAO {
     }
 
     public static ResultSet getIconByName(String iconname) {
-        String query = "SELECT * from icon WHERE Name = " + iconname;
+        String query = "SELECT * from icon WHERE Name = '" + iconname+"'";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
         Statement stmt = null;
