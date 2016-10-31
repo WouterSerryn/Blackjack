@@ -43,7 +43,8 @@ public class ModifyIconServlet extends HttpServlet {
         User user = UserService.getUserByNickname(nickname);
         
         int balance = user.getBalance();
-
+        System.out.println(iconname);
+        System.out.println(nickname);
         int iconID = IconService.getIdByIconName(iconname);
 
         UserService.editUser(nickname, balance, iconID);
