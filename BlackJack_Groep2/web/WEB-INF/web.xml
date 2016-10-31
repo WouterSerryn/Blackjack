@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>BlackjackRealm</realm-name>
+        <realm-name>JDBCrealm</realm-name>
         <form-login-config>
             <form-login-page>/LoginScreen.html</form-login-page>
             <form-error-page>/LogOutServlet</form-error-page>
@@ -26,6 +26,7 @@
             <role-name>headuser</role-name>
         </auth-constraint>
     </security-constraint>
+    
     <error-page>
         <error-code>403</error-code>
         <location>/LogOutServlet</location>
@@ -34,6 +35,7 @@
         <error-code>401</error-code>
         <location>/LogOutServlet</location>
     </error-page>
+    
     <servlet>
         <servlet-name>ModifyIconServlet</servlet-name>
         <servlet-class>blackjack.web.ModifyIconServlet</servlet-class>
