@@ -6,12 +6,10 @@
 package blackjack.web;
 
 import blackjack.model.Icon;
-import blackjack.model.User;
 import blackjack.services.IconService;
-import blackjack.services.UserService;
-import blackjack.util.Conversion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Chayenne Jacques
  */
-public class ModifyUserServlet extends HttpServlet {
+public class EditIconServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,22 +34,16 @@ public class ModifyUserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
-            String iconname = request.getParameter("iconname");
-            String nickname = request.getParameter("nickname");
-            int balance = Integer.parseInt(request.getParameter("balance"));;
-            
-            Icon icon = IconService.getIconByName(iconname);
-            
-            User user = new User (nickname, balance, icon);
-
-            UserService.editUser(user);
-
-            RequestDispatcher view = request.getRequestDispatcher("EditUser.jsp");
-            view.forward(request, response);
-
-        }
+       List<Icon> iconList =IconService.getIcons();
+        request.getServletContext().setAttribute("iconList",iconList);
+    
+   String iconname=request.getParameter("iconname");
+    String nickname=request.getParameter("nickname");
+    Icon icon=IconService.getIconByName(iconname);
+    request.setAttribute("icon",icon);
+    request.setAttribute("nickname",nickname);
+    RequestDispatcher view = request.getRequestDispatcher("EditIcon.jsp");
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,6 +55,12 @@ public class ModifyUserServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -74,7 +72,6 @@ public class ModifyUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         processRequest(request, response);
     }
 

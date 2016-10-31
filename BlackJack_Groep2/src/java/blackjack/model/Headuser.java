@@ -1,6 +1,9 @@
 
 package blackjack.model;
 
+import blackjack.dao.UserDAO;
+import blackjack.services.UserService;
+
 
 /**
  *
@@ -25,10 +28,15 @@ public class Headuser extends User {
         user.setBalance(user.getBalance()+amount);
     }
     
+    public void editUser (User user){
+        UserService.editUser(user);
+    }
     
+    public void addUser(User user){
+        UserService.addUser(user);
+    }
     
-    
-    
-    
-    
+    public void removeUser(String nickname){
+        UserService.removeUser(nickname);
+    }
 }

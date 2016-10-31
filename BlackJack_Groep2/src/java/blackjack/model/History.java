@@ -22,9 +22,5 @@ public class History {
         this.gamestate = gamestate;
         this.date = date;
     }
-    
-    
-    
-    
-    
+ 
 }

@@ -5,11 +5,6 @@
  */
 package blackjack.web;
 
-import blackjack.model.Icon;
-import blackjack.model.User;
-import blackjack.services.IconService;
-import blackjack.services.UserService;
-import blackjack.util.Conversion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -17,12 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Chayenne Jacques
  */
-public class ModifyUserServlet extends HttpServlet {
+public class LogOutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,20 +33,16 @@ public class ModifyUserServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String iconname = request.getParameter("iconname");
-            String nickname = request.getParameter("nickname");
-            int balance = Integer.parseInt(request.getParameter("balance"));;
-            
-            Icon icon = IconService.getIconByName(iconname);
-            
-            User user = new User (nickname, balance, icon);
-
-            UserService.editUser(user);
-
-            RequestDispatcher view = request.getRequestDispatcher("EditUser.jsp");
-            view.forward(request, response);
-
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LogOutServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet LogOutServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -63,6 +55,17 @@ public class ModifyUserServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        HttpSession session = request.getSession(false);
+        session.invalidate();
+        RequestDispatcher view = request.getRequestDispatcher("StartScreen.jsp");
+        view.forward(request, response);
+
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -74,7 +77,6 @@ public class ModifyUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         processRequest(request, response);
     }
 

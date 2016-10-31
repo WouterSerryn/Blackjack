@@ -84,7 +84,7 @@ public class Conversion {
                 res = rs.getInt("Id");
             }
         } catch (SQLException ex) {
-                
+                System.out.println("error convertresultsettoint");
         }
         return res;
     }
