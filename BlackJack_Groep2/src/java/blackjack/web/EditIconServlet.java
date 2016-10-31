@@ -34,15 +34,16 @@ public class EditIconServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       List<Icon> iconList =IconService.getIcons();
-        request.getServletContext().setAttribute("iconList",iconList);
-    
-   String iconname=request.getParameter("iconname");
-    String nickname=request.getParameter("nickname");
-    Icon icon=IconService.getIconByName(iconname);
-    request.setAttribute("icon",icon);
-    request.setAttribute("nickname",nickname);
-    RequestDispatcher view = request.getRequestDispatcher("EditIcon.jsp");
+        List<Icon> iconList = IconService.getIcons();
+        request.getServletContext().setAttribute("iconList", iconList);
+
+        String iconname = request.getParameter("iconname");
+        String nickname = request.getParameter("nickname");
+        Icon icon = IconService.getIconByName(iconname);
+        request.setAttribute("icon", icon);
+        request.setAttribute("nickname", nickname);
+        
+        RequestDispatcher view = request.getRequestDispatcher("EditIcon.jsp");
         view.forward(request, response);
     }
 

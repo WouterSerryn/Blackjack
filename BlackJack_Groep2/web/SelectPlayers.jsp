@@ -15,7 +15,7 @@
 <%
     //int max=4;
     List<User> users = (List<User>)request.getAttribute("users");
-    System.out.println(users.get(5));
+    
     
 
 

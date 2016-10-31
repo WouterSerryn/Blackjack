@@ -32,11 +32,11 @@ public class LogOutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        HttpSession session = request.getSession(false);
+System.out.println("logoutservlet");
+        HttpSession session = request.getSession(true);
         session.invalidate();
-        RequestDispatcher view = request.getRequestDispatcher("StartScreen.jsp");
-        view.forward(request, response);
+   //     RequestDispatcher view = request.getRequestDispatcher("LoginScreen.html");
+    //    view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,7 +51,7 @@ public class LogOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+processRequest(request,response);
     }
 
     /**

@@ -5,11 +5,8 @@
  */
 package blackjack.web;
 
-import blackjack.model.Icon;
-import blackjack.model.User;
-import blackjack.services.IconService;
-import blackjack.services.UserService;
-import blackjack.util.Conversion;
+import blackjack.dao.HeaduserDAO;
+import blackjack.services.HeaduserService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -22,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Chayenne Jacques
  */
-public class ModifyUserServlet extends HttpServlet {
+public class EditPasswordServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,19 +33,12 @@ public class ModifyUserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String iconname = request.getParameter("iconname");
-        String nickname = request.getParameter("nickname");
-        int balance = Integer.parseInt(request.getParameter("balance"));
 
-        Icon icon = IconService.getIconByName(iconname);
-System.out.println("iconname: "+iconname);
-System.out.println("nickname: "+nickname);
-System.out.println("balance: "+balance);
-        User user = new User(nickname, balance, icon);
+        String newPassword = request.getParameter("newPassword");
 
-        UserService.editUser(user);
+        HeaduserService.editPassword(newPassword);
 
-        RequestDispatcher view = request.getRequestDispatcher("AccountManagement.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("StartScreen.jsp");
         view.forward(request, response);
 
     }
@@ -62,6 +52,12 @@ System.out.println("balance: "+balance);
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -73,8 +69,7 @@ System.out.println("balance: "+balance);
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        processRequest(request,response);
+        processRequest(request, response);
     }
 
     /**

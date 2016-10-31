@@ -28,21 +28,8 @@
     <body>
         <form action="ModifyUserServlet" method="post">
             Naam: <input type="text" readonly value="<% out.print(nickname); %>" name="nickname" /><br>
-            Credits: <input type="text" value="<% out.print(balance); %>" name="credits" /><br>
-            Icoon: 
-            <select name="icon">
-                <%
-                    Iterator<Icon> it = iconList.iterator();
-                    Icon icon;
-                    while (it.hasNext()) {
-                        icon = it.next();
-                %>
-                <option value="<% out.print(icon.getIconName()); %>"><% out.print(icon.getIconName()); %></option>
-                <%
-                    }
-
-                %>
-            </select>
+            Credits: <input type="text" value="<% out.print(balance); %>" name="balance" /><br>
+            <input type="hidden" name="iconname" value="<% out.print(iconname); %>" />
 
             <br>
             <button name="Terug" formaction="AccountManagement.jsp">Terug</button><input type="submit" value="Bevestigen" />

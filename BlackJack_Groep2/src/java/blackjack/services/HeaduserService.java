@@ -18,4 +18,8 @@ public class HeaduserService {
     {
        return Conversion.convertResultSetToHeaduser(HeaduserDAO.getHeadUser());
     }
+    
+    public static void editPassword(String password){
+        HeaduserDAO.editHeaduserPassword(password);
+    }
 }

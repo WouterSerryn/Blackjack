@@ -11,9 +11,9 @@ import java.sql.Statement;
  * @author Chayenne Jacques
  */
 public class HeaduserDAO {
-    public static ResultSet getHeadUser()
-    {
-        String query = "SELECT * from user,headUser where user.Id=headUser.Id";
+
+    public static ResultSet getHeadUser() {
+        String query = "SELECT * from user,headuser, icon where user.Id=headuser.Id and icon.Id=user.IconId";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         Statement stmt = null;
         ResultSet rs = null;
@@ -21,9 +21,22 @@ public class HeaduserDAO {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
-            e.printStackTrace();
         }
         return rs;
+    }
+
+    public static void editHeaduserPassword(String password) {
+        String query = "UPDATE headuser SET password = '" + password + "'";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

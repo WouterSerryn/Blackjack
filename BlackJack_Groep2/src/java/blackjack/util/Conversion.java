@@ -44,17 +44,17 @@ public class Conversion {
         try {
             while (rs.next()) {
                 nickname = rs.getString("Nickname");
-                iconname = rs.getString("Iconname");
-                iconpath = rs.getString("Iconpath");
-                email = rs.getString("Emailadres");
-                password = rs.getString("Wachtwoord");
+                iconname = rs.getString("icon.Name");
+                iconpath = rs.getString("icon.Path");
+                email = rs.getString("Email");
+                password = rs.getString("Password");
                 balance = rs.getInt("Balance");
                 icon = new Icon(iconname, iconpath);
                 headuser = new Headuser(nickname, balance, password, email, icon);
 
             }
         } catch (SQLException ex) {
-
+System.out.println("conversion error");
         }
         return headuser;
 
