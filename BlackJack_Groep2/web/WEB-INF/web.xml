@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>BlackjackRealm</realm-name>
+        <form-login-config>
+            <form-login-page>/LoginScreen.html</form-login-page>
+            <form-error-page>/LogOut</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+    <security-role>
+        <description/>
+        <role-name>headuser</role-name>
+    </security-role>
+    
     <servlet>
         <servlet-name>ModifyIconServlet</servlet-name>
         <servlet-class>blackjack.web.ModifyIconServlet</servlet-class>
