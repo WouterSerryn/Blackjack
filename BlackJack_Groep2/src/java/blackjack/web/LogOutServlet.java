@@ -34,6 +34,7 @@ public class LogOutServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("logoutservlet");
         HttpSession session = request.getSession(false);
+       
         
        session.invalidate();
         

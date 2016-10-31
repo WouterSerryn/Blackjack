@@ -126,6 +126,9 @@
             <web-resource-name>headusers</web-resource-name>
             <description/>
             <url-pattern>/AccountManagement.jsp</url-pattern>
+            <url-pattern>/EditPassword.jsp</url-pattern>
+            <url-pattern>/EditUser.jsp</url-pattern>
+            
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
