@@ -35,11 +35,12 @@ public class SelectPlayersServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session=request.getSession();
-        String headusername=(String)session.getAttribute("headusername");
-        System.out.println(headusername);
+       
+       
         List<User> users;
         
-        if(headusername==null)
+      
+        if(request.getRemoteUser()==null)
         {
        users=UserService.getUsersExcludingHeadUser();
         }

@@ -26,7 +26,6 @@
             <role-name>headuser</role-name>
         </auth-constraint>
     </security-constraint>
-    
     <error-page>
         <error-code>403</error-code>
         <location>/LogOutServlet</location>
@@ -35,7 +34,6 @@
         <error-code>401</error-code>
         <location>/LogOutServlet</location>
     </error-page>
-    
     <servlet>
         <servlet-name>ModifyIconServlet</servlet-name>
         <servlet-class>blackjack.web.ModifyIconServlet</servlet-class>
