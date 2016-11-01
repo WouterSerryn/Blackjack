@@ -41,7 +41,7 @@ public class Hand {
                {
                    c.setRankToSmallAce();
                    foundReduceableAce=true;
-                   System.out.println("nu");
+                  
                    break;
                }
                

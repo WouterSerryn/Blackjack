@@ -18,7 +18,7 @@ public class Dealer {
 
     public Dealer() {
         this.hand = new Hand();
-        this.icon = new Icon("naam","path");
+        this.icon = new Icon("Jafar","images/jafar.png");
         this.minimumStand = 17;
         this.minimumDraw = 16;
     }

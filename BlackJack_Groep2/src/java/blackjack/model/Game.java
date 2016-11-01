@@ -120,12 +120,12 @@ public class Game {
         while (it.hasNext()) {
             User user = it.next();
             if (user.getState().equals(Gamestate.Loss)) {
-                user.setBalance(user.getBalance() - user.getBet());
+                //niets doen..
             } else if (user.getState().equals(Gamestate.Push)) {
-                // geen credits toevoegen of verwijderen
+               user.setBalance((int) (user.getBalance() + user.getBet()));
             } else if (user.getState().equals(Gamestate.Win)) {
                 if (user.getHand().getState().equals(Handstate.Stand)) {
-                    user.setBalance((int) (user.getBalance() + (user.getBet() * 1.5)));
+                    user.setBalance((int) (user.getBalance() + (user.getBet() * 2)));
                 } else if (user.getHand().getState().equals(Handstate.Blackjack)) {
                     user.setBalance((int) (user.getBalance() + (user.getBet() * 2.5)));
                 }

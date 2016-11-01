@@ -108,7 +108,7 @@
     
         <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>PayaraBJ</realm-name>
+        <realm-name>BlackjackRealm</realm-name>
         <form-login-config>
             <form-login-page>/LoginScreen.html</form-login-page>
             <form-error-page>/LogOutServlet</form-error-page>
