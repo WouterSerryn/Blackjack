@@ -11,12 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form method="post" action="LogInServlet">
+        <form method="post" action="j_security_check">
             <label><b>E-mailadres</b></label>
-            <input type="text" placeholder="Vul uw e-mailadres in" name="email" required />
+            <input type="text" placeholder="Vul uw e-mailadres in" name="j_username" required />
             <br>
             <label><b>Wachtwoord</b></label>
-            <input type="password" placeholder="Vul uw wachtwoord in" name="password" required />
+            <input type="password" placeholder="Vul uw wachtwoord in" name="j_password" required />
             <br>
             <button name="Terug" onclick="window.location='StartScreen.jsp'">Terug</button>
             <button name="login" type="submit">Login</button>
