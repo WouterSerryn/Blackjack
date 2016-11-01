@@ -156,6 +156,7 @@ System.out.println("conversion error");
         try {
             while (rs.next()) {
                 res = rs.getInt("result");
+                
             }
         } catch (SQLException ex) {
                 System.out.println("error convertresultsettoint");

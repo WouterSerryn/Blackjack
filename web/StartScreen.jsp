@@ -17,7 +17,7 @@
             <div id="startTitle">Blackjack</div>
             <div id="startImage"></div>
             <a id="infoButton" class="regularButton" title="info" href="" >?</a>
-            <a id="loginButton" class="regularButton" title="Inloggen" href="LoginScreen.html" >Inloggen</a>
+            <a id="loginButton" class="regularButton" title="Inloggen" href="LoginScreen.jsp" >Inloggen</a>
             <a id="playButton" class="regularButton" title="Kies spelers" href="SelectPlayersServlet" >Kies spelers</a>  
             
             <div id="userMenu"><img src="images/gear.png" class="menuImage" />

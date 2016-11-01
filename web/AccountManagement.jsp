@@ -3,7 +3,15 @@
     Created on : 26-okt-2016, 12:51:48
     Author     : Chayenne Jacques
 --%>
+<% String loggedin = (String)request.getSession().getAttribute("loggedin");
+            if (loggedin!="loggedin"){
+                RequestDispatcher view = request.getRequestDispatcher("LoginScreen.jsp?page=AccountManagement.jsp");
+        view.forward(request, response);
+             } 
+        else
+{
 
+%>
 <%@page import="blackjack.model.Headuser"%>
 <%@page import="blackjack.services.HeaduserService"%>
 <%@page import="java.util.Iterator"%>
@@ -25,7 +33,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-
+        
+            
         <table>
             <tr>
                 <th>Icoon</th>
@@ -49,5 +58,7 @@
         <form>
             <button name="Terug" formaction="StartScreen.jsp">Terug</button><button name="gebruikerToevoegen" formaction="AddUser.jsp">Gebruiker toevoegen</button>
         </form>
+        
     </body>
-</html>
+</html><%
+}%>
