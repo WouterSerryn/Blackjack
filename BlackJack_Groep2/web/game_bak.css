@@ -1,0 +1,342 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-okt-2016, 8:13:39
+    Author     : Wouter
+*/
+body
+{
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    font-family: Helvetica;
+}
+#container, #largeContainer, #largeGameContainer, #gameContainer{
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    height: 400px;
+    background-color: gray;
+}
+#largeContainer{
+    padding: 0px;
+    width: 1024px;
+    height: 500px;
+    overflow-y: scroll;
+}
+#gameContainer{
+    
+    width: 800px;
+    height: 504px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 10px;
+    background-image: url(images/blackjackTable.png);
+}
+#largeGameContainer{
+    padding: 0px;
+    width: 1024px;
+    height: 550px;
+}
+#userBlockContainer{
+    width:900px;
+    min-height: 400px;   
+    position: relative;
+    margin: 0 auto;
+}
+.userBlockWrapper{
+    float: left;
+    position: relative;
+    height: 170px;
+    width: 170px;
+}
+.userBlock, .userBlockSelected{
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 10px;
+    position: relative;
+      background-color: white;
+      -webkit-transition: all 0.2s ease-in;
+    border: 1px solid black;
+    
+}
+.userBlockSelected{
+    background-color: blue;
+     
+}
+
+.userBlock:hover
+{
+    
+    background-color: lightblue;
+    -webkit-transition: all 0.2s ease-out;
+ 
+}
+.userBlockSelected:hover{
+    background-color: gray;
+}
+
+
+#next
+{
+    position: relative;
+    left: 600px;
+}
+#previous
+{
+    position: relative;
+    left: 400px;
+}
+.regularButton
+{
+    padding: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+}
+.editIcon{
+   
+    
+    
+    
+    
+   position: absolute;
+   float: left;
+   right: 10px;
+   bottom: 10px;
+   -webkit-transition: all 2s;
+ 
+}
+.userBlockWrapper .editIcon{
+    opacity: 0.1;
+    -webkit-transition: all 0.2s ease-out;
+}
+.userBlockWrapper:hover .editIcon{
+opacity: 1;
+    -webkit-transition: all 0.2s ease-in;
+  
+   
+}
+.editIconImage{
+    width: 30px;
+    height: 30px;
+    
+}
+.editIconImage:hover
+{
+    display: block;
+    
+    
+}
+.regularButton:hover
+{
+    background-color: gray;
+    
+}
+.userName{
+    position: absolute;
+ width: calc(100% - 5px);
+ border-bottom: 1px solid black;
+ height: auto;
+ background-color: darkgray;
+ color: white;
+ 
+left: 5px;
+ margin-left: -5px;
+ padding-left: 5px;
+ padding-bottom: 5px;
+ top: 0px;
+ padding-top: 5px;
+}
+.userChips{
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    width: 100%;
+}
+.userBet{
+    position: absolute;
+    top: 80px;
+    left: 5px;
+    width: 100%;
+}
+.userIcon{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 75px;
+    height: 75px;
+    
+}
+.userIconSmall{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+#playerListWithButtons{
+    position: relative;
+    
+    height: 100px;
+    width: 1024px;
+    margin: 0 auto;
+    
+   
+   
+}
+#playerList
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+#infoButton{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+#playButton{
+    width: 120px;
+ 
+    position: absolute;
+    left: 140px;
+    bottom: 20px;
+}
+#loginButton{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+}
+#userMenu{
+    display: none;
+        position: absolute;
+    top: 20px;
+    right: 20px;
+    list-style: none;
+}
+#userMenu:hover #menuList
+{
+    display: block;
+}
+#userMenu:hover .menuImage{
+    display: none;
+}
+
+
+
+#startTitle{
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    top:100px;
+    left: 75px;
+    font-size: 35px;
+    text-align: center;
+    padding: 0;
+ 
+    
+}
+#startImage{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 150px;
+    left: 125px;
+    background-image: url("images/aces.png");
+    background-size: 150px 100px;
+    background-repeat: no-repeat;
+}
+#menuList{
+    list-style: none;
+    display: none;
+}
+
+
+.menuImage{
+    width:40px;
+    height: 40px;
+    position: relative;
+    float: left;
+    display: block;
+   
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+}
+.playerBlock
+{
+   position: absolute;
+    width: 160px;
+    height: 160px;
+   color: white;
+    
+}
+#p1
+{
+     
+    bottom: 200px;
+    left: 0px;
+}
+#p2
+{
+     
+    bottom: 130px;
+    left: 220px;
+}
+#p3{
+    bottom:130px;
+    right:220px;
+}
+#p4{
+    bottom: 200px;
+    right: 0px;
+    
+}
+#betBlock
+{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 150px;
+    height: 100px;
+    background-color: blue;
+}
+
+#betInput{
+   
+    width: 50px;
+    margin-top: 5px;
+    
+}
+#betConfirm{
+    position: absolute;
+    right: 10px;
+}
+.userConfirm{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.visble
+{
+    visibility: visible;
+}
+.hidden{
+    visibility: hidden;
+}
+
