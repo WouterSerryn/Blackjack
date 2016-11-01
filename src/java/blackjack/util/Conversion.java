@@ -77,14 +77,14 @@ System.out.println("conversion error");
         return list;
     }
 
-    public static int convertResultSetToInt(ResultSet rs) {
+    public static int convertResultSetToId(ResultSet rs) {
         int res = -1;
         try {
             while (rs.next()) {
                 res = rs.getInt("Id");
             }
         } catch (SQLException ex) {
-                System.out.println("error convertresultsettoint");
+                System.out.println("error convertresultsettoId");
         }
         return res;
     }
@@ -149,5 +149,17 @@ System.out.println("conversion error");
         } catch (SQLException ex) {
 
         } return icon;
+    }
+    public static int convertResultSetToInt(ResultSet rs)
+    {
+        int res = 0;
+        try {
+            while (rs.next()) {
+                res = rs.getInt("result");
+            }
+        } catch (SQLException ex) {
+                System.out.println("error convertresultsettoint");
+        }
+        return res;
     }
 }

@@ -37,7 +37,7 @@ public class UserService {
     }
     
     public static int getUserIdByNickname(String nickname){
-        return Conversion.convertResultSetToInt(UserDAO.getUserIdByNickname(nickname));
+        return Conversion.convertResultSetToId(UserDAO.getUserIdByNickname(nickname));
     }
     
     public static User getUserByNickname(String nickname){

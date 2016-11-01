@@ -21,7 +21,7 @@ public class IconService {
     }
     
     public static int getIdByIconName(String iconname){
-        return Conversion.convertResultSetToInt(IconDAO.getIconIdByIconName(iconname));
+        return Conversion.convertResultSetToId(IconDAO.getIconIdByIconName(iconname));
     }
     
     public static Icon getIconByName(String iconname){

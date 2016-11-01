@@ -22,4 +22,14 @@ public class HeaduserService {
     public static void editPassword(String password){
         HeaduserDAO.editHeaduserPassword(password);
     }
+    public static boolean isAuthenticatedHeaduser(String email, String password)
+    {
+        boolean authenticated=false;
+        int i=Conversion.convertResultSetToInt(HeaduserDAO.authenticateHeaduser(email, password));
+        if(i>0)
+        {
+            authenticated=true;
+        }
+        return authenticated;
+    }
 }

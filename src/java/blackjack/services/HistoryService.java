@@ -21,12 +21,12 @@ public class HistoryService {
         int userid, bet, balance, gamestateId, gameId;
         List<User> users = game.getPlayers();
         Iterator<User> it = users.iterator();
-        gameId = Conversion.convertResultSetToInt(GameDAO.selectLargestId("Game"));
+        gameId = Conversion.convertResultSetToId(GameDAO.selectLargestId("Game"));
         while (it.hasNext()) {
-            userid = Conversion.convertResultSetToInt(UserDAO.getUserIdByNickname(it.next().getNickname()));
+            userid = Conversion.convertResultSetToId(UserDAO.getUserIdByNickname(it.next().getNickname()));
             bet = it.next().getBet();
             balance = it.next().getBalance();
-            gamestateId = Conversion.convertResultSetToInt(GamestateDAO.getIdByGameState(it.next().getState().name()));
+            gamestateId = Conversion.convertResultSetToId(GamestateDAO.getIdByGameState(it.next().getState().name()));
             
             HistoryDAO.addHistory(userid, gameId, bet, balance, gamestateId);
         }

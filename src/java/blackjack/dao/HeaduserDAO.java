@@ -38,5 +38,18 @@ public class HeaduserDAO {
         }
 
     }
+    public static ResultSet authenticateHeaduser(String email, String password)
+    {
+        String query = "SELECT count(*) as result from headuser where Email='"+email+"' and password+'"+password+"'";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+        }
+        return rs;
+    }
 
 }
