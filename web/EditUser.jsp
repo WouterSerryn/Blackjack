@@ -9,7 +9,15 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="blackjack.model.Icon"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+  <% String loggedin = (String)request.getSession().getAttribute("loggedin");
+            if (loggedin!="loggedin"){
+                RequestDispatcher view = request.getRequestDispatcher("LoginScreen.jsp?page=AccountManagement.jsp");
+        view.forward(request, response);
+             } 
+        else
+{
 
+%>
 <% String nickname = request.getParameter("nickname");
     String iconname = request.getParameter("iconname");
     int balance = Integer.parseInt(request.getParameter("balance"));
@@ -36,3 +44,4 @@
         </form>
     </body>
 </html>
+<% } %>

@@ -26,6 +26,7 @@ public class HeaduserService {
     {
         boolean authenticated=false;
         int i=Conversion.convertResultSetToInt(HeaduserDAO.authenticateHeaduser(email, password));
+        System.out.println("aantal "+i);
         if(i>0)
         {
             authenticated=true;

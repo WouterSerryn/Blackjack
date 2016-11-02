@@ -32,11 +32,10 @@ public class LogOutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("logoutservlet");
+
         HttpSession session = request.getSession(false);
        
-        
-       session.invalidate();
+        session.invalidate();
         
         RequestDispatcher view = request.getRequestDispatcher("StartScreen.jsp");
         view.forward(request, response);
