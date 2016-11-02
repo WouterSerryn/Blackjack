@@ -22,5 +22,31 @@ public class History {
         this.gamestate = gamestate;
         this.date = date;
     }
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public int getBet() {
+        return bet;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public String getGamestate() {
+        return gamestate;
+    }
+
+    public String getDate() {
+        return date;
+    }
+    
+    
  
 }

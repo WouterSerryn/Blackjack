@@ -27,13 +27,21 @@ public class HistoryService {
             bet = it.next().getBet();
             balance = it.next().getBalance();
             gamestateId = Conversion.convertResultSetToId(GamestateDAO.getIdByGameState(it.next().getState().name()));
-            
+
             HistoryDAO.addHistory(userid, gameId, bet, balance, gamestateId);
         }
     }
-    
-    public static List<History> getAllHistory(){
+
+    public static List<History> getAllHistory() {
         return Conversion.convertResultsetToHistoryList(HistoryDAO.getAllHistory());
+    }
+
+    public static List<History> getHistoryByDate(String date) {
+        return Conversion.convertResultsetToHistoryList(HistoryDAO.getHistoryByDate(date));
+    }
+    
+    public static List<History> getHistoryByUser(String nickname){
+        return Conversion.convertResultsetToHistoryList(HistoryDAO.getHistoryByUser(nickname));
     }
 
 }
