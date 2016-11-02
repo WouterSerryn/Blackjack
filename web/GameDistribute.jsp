@@ -32,15 +32,8 @@
             <div id="dealer">
                 <img id="dealerIcon" src="images/jafar.png" />
                 <div class="cardsBlock"><% for(int j=0;j<game.getDealer().getHand().getCards().size();j++){
-                    %><div class="card"><img src="<% 
-                        if(game.getDealer().getHand().getCards().get(j).isVisible())
-                        {
-                        out.print(game.getDealer().getHand().getCards().get(j).getCardimage()); 
-                        }
-                        else
-                        {
-                         out.print(game.getDealer().getHand().getCards().get(j).getBackimage());    
-                        }
+                    %><div class="card"><img src="<%  
+                        out.print(game.getDealer().getHand().getCards().get(j).getVisibleImage());     
                     %>" class="cardImage" /></div><%
                        } %></div>
             </div>
@@ -54,7 +47,7 @@
                    i++;
                    user=it.next();
                    %>
-                   <div id="<%out.print("p"+i);%>" class="playerBlock">
+                   <div id="<%out.print('p'+i);%>" class="playerBlock">
                        <div class="userName"><%out.print(user.getBalance()+" coins"); %>
                            <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                            

@@ -6,6 +6,7 @@
 package blackjack.web;
 
 import blackjack.model.Game;
+import blackjack.model.Handstate;
 import blackjack.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,6 +37,18 @@ public class GameServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Game game=(Game)request.getServletContext().getAttribute("game");
+        int currentPlayerIndex=(Integer) request.getAttribute("currentPlayerIndex");
+        String action=(String)request.getParameter("action");
+        User currentPlayer=game.getPlayers().get(currentPlayerIndex);
+        if(action.equals("hit"))
+        {
+            game.playerHit(currentPlayer);
+            currentPlayer.getHand().evaluate();
+            if(currentPlayer.getHand().getState()==Handstate.Busted)
+            {
+                request.setAttribute("currentPlayerIndex", currentPlayerIndex+1);
+            }
+        }
         
     }
 

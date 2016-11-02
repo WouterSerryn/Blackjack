@@ -7,6 +7,7 @@ package blackjack.web;
 
 import blackjack.model.Game;
 import blackjack.model.User;
+import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ public class GameBetServlet extends HttpServlet {
             user.getHand().clear();
             user.setBet(Integer.parseInt(request.getParameter(bets.get(i))));
             user.setBalance(user.getBalance()-user.getBet());
+            UserService.editUser(user);
             i++;
             
         }

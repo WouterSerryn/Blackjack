@@ -58,6 +58,17 @@ public class Card {
     public boolean isVisible() {
         return visible;
     }
+    public String getVisibleImage()
+    {
+        if(this.visible)
+        {
+            return getCardimage();
+        }
+        else
+        {
+            return getBackimage();
+        }
+    }
 
     public String getCardimage() {
         return cardimage;
