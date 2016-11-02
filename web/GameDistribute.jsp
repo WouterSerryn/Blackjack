@@ -12,7 +12,7 @@
     
     Game game=(Game)request.getServletContext().getAttribute("game");
     ArrayList<User> players=game.getPlayers();
-    
+
     %>
     
     
@@ -47,7 +47,7 @@
                    i++;
                    user=it.next();
                    %>
-                   <div id="<%out.print('p'+i);%>" class="playerBlock">
+                   <div id="<%out.print("p"+i);%>" class="playerBlock">
                        <div class="userName"><%out.print(user.getBalance()+" coins"); %>
                            <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                            
@@ -75,7 +75,11 @@
                 %>
             
                    
-           
+           <div id="betBlock">
+                <div id="betName" class="userName">Verder?</div>
+                <div class="userChips"><button onclick="window.location='GameServlet'" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
+                
+            </div>
         </div>
         </div>
     </body>

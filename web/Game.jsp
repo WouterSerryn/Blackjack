@@ -13,7 +13,9 @@
     
     Game game=(Game)request.getServletContext().getAttribute("game");
     ArrayList<User> players=game.getPlayers();
-    int currentPlayerIndex=(Integer) request.getAttribute("currentPlayerIndex");
+    String currentPlayerIndex=(String)request.getServletContext().getAttribute("currentPlayerIndex");
+    System.out.println("current player index: "+currentPlayerIndex);
+    request.getServletContext().setAttribute("currentPlayerIndex",currentPlayerIndex);
     
     %>
     
@@ -61,6 +63,10 @@
                            {
                                out.print("Black<br/>jack");
                            }
+                           else if(user.getHand().getState()==Handstate.Busted)
+                           {
+                               out.print("Busted");
+                           }
                            else
                             {
                                out.print(user.getHand().getValue());
@@ -78,7 +84,7 @@
             
                    
            <div id="betBlock">
-               <div id="betName" class="userName">inzet <% out.println(players.get(currentPlayerIndex).getNickname()); %></div>
+               <div id="betName" class="userName">inzet <% out.println(game.getPlayers().get(Integer.parseInt(currentPlayerIndex)).getNickname()); %></div>
                 <div class="userChips"><button onclick="window.location='GameServlet?action=hit'" class="regularButton"  name="hit">hit</button>
                 <button onclick="window.location='GameServlet?action=stand'" class="regularButton"  name="stand">stand</button></div>
                 

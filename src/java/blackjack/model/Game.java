@@ -149,5 +149,31 @@ public class Game {
     public Deck getDeck() {
         return deck;
     }
-
+    
+    public void dealerPlay()
+    {
+        int minimumStand=21;
+        Iterator<User> it=this.players.iterator();
+        while(it.hasNext())
+        {
+            User player=it.next();
+            if(player.getHand().getValue()<minimumStand)
+            {
+                minimumStand=player.getHand().getValue();
+            }
+        }
+        if(minimumStand==21)
+        {
+            minimumStand=17;
+        }
+        if(minimumStand<17)
+        {
+            minimumStand=17;
+        }
+        while(this.dealer.getHand().getValue()<minimumStand)
+        {
+            dealerHit();
+            dealer.getHand().evaluate();
+        }
+    }
 }
