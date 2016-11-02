@@ -97,7 +97,7 @@ public class UserDAO {
     }
 
     public static ResultSet getUsersExcludingHeadUser() {
-        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and user.id NOT IN (SELECT id from headuser) order by nickname";
+        String query = "SELECT * from user, icon WHERE icon.Id = user.iconId and user.Id NOT IN (SELECT Id from headuser) order by nickname";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         Statement stmt = null;
         ResultSet rs = null;
@@ -105,7 +105,7 @@ public class UserDAO {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
-            e.printStackTrace();
+           System.out.println("excludingheaduser error");
         }
         return rs;
     }

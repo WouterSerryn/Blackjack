@@ -36,20 +36,43 @@ public class GameServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Game game=(Game)request.getServletContext().getAttribute("game");
-        int currentPlayerIndex=(Integer) request.getAttribute("currentPlayerIndex");
-        String action=(String)request.getParameter("action");
-        User currentPlayer=game.getPlayers().get(currentPlayerIndex);
-        if(action.equals("hit"))
-        {
-            game.playerHit(currentPlayer);
-            currentPlayer.getHand().evaluate();
-            if(currentPlayer.getHand().getState()==Handstate.Busted)
-            {
-                request.setAttribute("currentPlayerIndex", currentPlayerIndex+1);
+         RequestDispatcher view = request.getRequestDispatcher("Game.jsp");
+        Game game = (Game) request.getServletContext().getAttribute("game");
+        String currentPlayerIndex = (String) request.getServletContext().getAttribute("currentPlayerIndex");
+        System.out.println(currentPlayerIndex);
+        if (currentPlayerIndex == null) {
+            System.out.println("no currentplayer");
+            request.getServletContext().setAttribute("currentPlayerIndex", "0");
+            
+           
+        } else if(Integer.parseInt(currentPlayerIndex)< game.getPlayers().size()) {
+            int index = Integer.parseInt(currentPlayerIndex);
+            String action = (String) request.getParameter("action");
+            User currentPlayer = game.getPlayers().get(index);
+            if (action.equals("hit")) {
+                game.playerHit(currentPlayer);
+                System.out.println(game.getPlayers().get(0).getHand().getValue());
+                currentPlayer.getHand().evaluate();
+                if (currentPlayer.getHand().getState()==Handstate.Busted) {
+                    System.out.println("busted");
+                    index += 1;
+                }
+            } else {
+                index += 1;
+                currentPlayer.getHand().setState(Handstate.Stand);
             }
+            request.getServletContext().setAttribute("currentPlayerIndex", index+"");
+            
         }
-        
+        else
+        {
+            game.getDealer().getHand().getCards().get(0).setVisibility(true);
+            view=request.getRequestDispatcher("gameDealer.jsp");
+        }
+        request.getServletContext().setAttribute("game",game);
+       
+        view.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
