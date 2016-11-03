@@ -5,23 +5,18 @@
  */
 package blackjack.web;
 
-import blackjack.model.User;
-import blackjack.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Wouter
  */
-public class SelectPlayersServlet extends HttpServlet {
+public class gameDealerServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +29,19 @@ public class SelectPlayersServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=request.getSession();
-       
-       
-        List<User> users;
-        
-      
-        if(request.getSession().getAttribute("loggedin")==null)
-        {
-       users=UserService.getUsersExcludingHeadUser();
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet gameDealerServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet gameDealerServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        else
-        {
-            System.out.println("logged int+all users");
-       users = UserService.getUsers();
-        }
-       request.setAttribute("users",users);
-       
-       RequestDispatcher view=request.getRequestDispatcher("SelectPlayers.jsp");
-        view.forward(request,response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

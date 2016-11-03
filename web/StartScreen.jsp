@@ -22,7 +22,7 @@
             
             <div id="userMenu"><img src="images/gear.png" class="menuImage" />
                 <ul id="menuList">
-                <li class="regularButton">historiek</li>
+                    <li class="regularButton"><a href="History.jsp">historiek</a></li>
                 <li class="regularButton"><a href="AccountManagement.jsp">accounts</a></li>
                 <li class="regularButton"><a href="EditPassword.jsp">wijzigen</a></li>
                 <li class="regularButton"><a href="LogOutServlet">uitloggen</a></li>
