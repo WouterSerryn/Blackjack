@@ -21,7 +21,7 @@ public class HistoryDAO {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("error getallhistory");
         }
         return rs;
     }

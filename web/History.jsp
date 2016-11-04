@@ -8,6 +8,18 @@
 <%@page import="blackjack.services.HistoryService"%>
 <%@page import="blackjack.model.History"%>
 <%@page import="java.util.List"%>
+
+<% String loggedin = (String)request.getSession().getAttribute("loggedin");
+            if (loggedin!="loggedin"){
+                RequestDispatcher view = request.getRequestDispatcher("LoginScreen.jsp?page=History.jsp");
+        view.forward(request, response);
+             } 
+        else
+{
+
+%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% List<History> history = HistoryService.getAllHistory();
@@ -42,3 +54,5 @@
         </form>
     </body>
 </html>
+<% }
+%>

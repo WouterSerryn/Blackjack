@@ -116,22 +116,25 @@ System.out.println("conversion error");
 
         try {
             while (rs.next()) {
-                gameid = rs.getInt("game.id");
-                date = rs.getString("date");
-                gamestate = rs.getString("gamestate.name");
-                nickname = rs.getString("nickname");
-                balance = rs.getInt("balance");
-                iconname = rs.getString("icon.name");
-                iconpath = rs.getString("icon.path");
-                bet = rs.getInt("bet");
-
+                gameid = rs.getInt("game.Id");
+                date = rs.getString("Date");
+                gamestate = rs.getString("gamestate.Name");
+                nickname = rs.getString("Nickname");
+                balance = rs.getInt("Balance");
+                                System.out.println("tot hier");
+                iconname = rs.getString("icon.Name");
+                System.out.println("tot hier");
+                iconpath = rs.getString("icon.Path");
+                System.out.println("tot hier");
+                bet = rs.getInt("Bet");
+                
                 Icon icon = new Icon(iconname, iconpath);
                 User user = new User(nickname, balance, icon);
                 History history = new History(gameid, user, bet, balance, gamestate, date);
                 list.add(history);
             }
         } catch (SQLException ex) {
-
+            System.out.println("error converttohistory");
         }
         return list;
     }

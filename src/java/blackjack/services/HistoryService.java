@@ -23,6 +23,7 @@ public class HistoryService {
         Iterator<User> it = users.iterator();
         GameService.addGame(game.getDate());
         gameId = Conversion.convertResultSetToId(GameDAO.selectLargestId("Game"));
+        System.out.println("gameId "+gameId);
         while (it.hasNext()) {
             User user=it.next();
             userid = Conversion.convertResultSetToId(UserDAO.getUserIdByNickname(user.getNickname()));

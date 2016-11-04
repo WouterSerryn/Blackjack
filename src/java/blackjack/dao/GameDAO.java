@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class GameDAO {
 
     public static ResultSet selectLargestId(String table) {
-        String query = "SELECT max(ID) from " + table;
+        String query = "SELECT max(Id) as Id from " + table;
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;
