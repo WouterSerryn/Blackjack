@@ -34,6 +34,7 @@
             <tr>
                 <th>Datum</th>
                 <th>Speler</th> 
+                <th>Balans</th>
                 <th>Inzet</th>
                 <th>Status</th>
             </tr>
@@ -43,6 +44,7 @@
             <tr>
                 <td><% out.print(h.getDate()); %></td>
                 <td><% out.print(h.getUser().getNickname()); %></td> 
+                <td><% out.print(h.getUser().getBalance()); %></td>
                 <td><% out.print(h.getUser().getBet()); %></td>
                 <td><% out.print(h.getUser().getState()); %></td>
             </tr> 
