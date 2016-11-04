@@ -23,15 +23,22 @@
         <link href="game.css" type="text/css" rel="stylesheet" />
         <script type="text/javascript">
         var playerNames = [<% for (int i = 0; i < nickNames.size(); i++) { %>"<%= nickNames.get(i) %>"<%= i + 1 < nickNames.size() ? ",":"" %><% } %>];
-        console.log(playerNames);
+        var playerMax= [<% for (int i = 0; i < game.getPlayers().size(); i++) { %>"<%= game.getPlayers().get(i).getBalance() %>"<%= i + 1 < game.getPlayers().size() ? ",":"" %><% } %>];
+    console.log(playerNames);
+    console.log(playerMax);
         var index=0;
          
         function setBet()
         { 
             bet=document.getElementById("betInput").value;
-            if(bet>document.getElementById("betInput").max)
+            console.log("max: "+document.getElementById("betInput").max.valueOf());
+            if(parseInt(bet)>parseInt(playerMax[window.index]))
             {
                 alert("U hebt niet zoveel credits!");
+            }
+            else if(parseInt(bet)<1)
+            {
+                alert("U moet minimum 1 credit inzetten");
             }
             else
             {
@@ -50,7 +57,7 @@
                    console.log("bet"+(index));
                document.getElementById("bet"+(index)).innerHTML="inzet: "+bet;
 
-            
+                document.getElementById("betInput").max=playerMax[window.index];
              document.getElementById("betName").innerHTML="inzet "+playerNames[window.index];
            }
            if(window.index===window.playerNames.length)
@@ -112,7 +119,7 @@
                    
             <div id="betBlock">
                 <div id="betName" class="userName">inzet <% out.println(nickNames.get(0)); %></div>
-                <div class="userChips"><input class="visible regularButton" id="betInput" size="10" type="number" max="<%out.print(players.get(0).getBalance());%>" min="0" name="bet" value="1" /><button onclick="setBet()" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
+                <div class="userChips"><input class="visible regularButton" id="betInput" size="10" type="number" max=<%out.print(players.get(0).getBalance());%> min=1 name="bet" value="1" /><button onclick="setBet()" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
                 
             </div>
                 <form method="post" action="GameBetServlet" id="formBet">
