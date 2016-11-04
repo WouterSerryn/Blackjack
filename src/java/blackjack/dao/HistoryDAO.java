@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class HistoryDAO {
 
     public static ResultSet getAllHistory() {
-        String query = "SELECT * from history, game, gamestate, icon, user where game.id = history.gameid and icon.id = user.iconid and user.id = history.userid and gamestate.id = history.gamestateid";
+        String query = "SELECT * from history, game, gamestate, icon, user where game.id = history.gameid and icon.id = user.iconid and user.id = history.userid and gamestate.id = history.gamestateid order by game.Id desc, date desc";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         Statement stmt = null;
         ResultSet rs = null;

@@ -126,7 +126,8 @@ System.out.println("conversion error");
                 
                 Icon icon = new Icon(iconname, iconpath);
                 User user = new User(nickname, balance, icon);
-                History history = new History(gameid, user, bet, gamestate, date);
+                user.setBet(bet);
+                History history = new History(gameid, user, gamestate, date);
                 list.add(history);
             }
         } catch (SQLException ex) {
