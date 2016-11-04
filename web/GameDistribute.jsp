@@ -30,6 +30,9 @@
         <div id="largeGameContainer">
         <div id="gameContainer">
             <div id="dealer">
+                <div class="amountAndState">
+                    <% out.print(game.getDealer().getHand().getCards().get(0).getValue()); %>
+                </div>
                 <img id="dealerIcon" src="images/jafar.png" />
                 <div class="cardsBlock"><% for(int j=0;j<game.getDealer().getHand().getCards().size();j++){
                     %><div class="card"><img src="<%  

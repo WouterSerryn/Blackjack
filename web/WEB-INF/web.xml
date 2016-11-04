@@ -60,6 +60,10 @@
         <servlet-name>gameDealerServlet</servlet-name>
         <servlet-class>blackjack.web.gameDealerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RestartServlet</servlet-name>
+        <servlet-class>blackjack.web.RestartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ModifyIconServlet</servlet-name>
         <url-pattern>/ModifyIconServlet</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>gameDealerServlet</servlet-name>
         <url-pattern>/gameDealerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RestartServlet</servlet-name>
+        <url-pattern>/RestartServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

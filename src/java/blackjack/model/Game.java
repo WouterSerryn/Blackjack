@@ -1,5 +1,7 @@
 package blackjack.model;
 
+import blackjack.services.HistoryService;
+import blackjack.services.UserService;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,6 +23,8 @@ public class Game {
         this.dealer = new Dealer();
         this.deck = new Deck();  
         this.date = Calendar.getInstance();
+        this.date.add(Calendar.DATE, 0);
+        System.out.println("date of today: "+date.getTime());
     }
     public void setPlayerList(ArrayList<User> players)
     {
@@ -130,11 +134,14 @@ public class Game {
                     user.setBalance((int) (user.getBalance() + (user.getBet() * 2.5)));
                 }
             }
+            UserService.editUser(user);
         }
+        HistoryService.addHistory(this);
     }
 
     public String getDate() {
-        String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+        String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(date.getTime());
+        System.out.println("Formatted date "+formattedDate);
         return formattedDate;
     }
 
@@ -152,6 +159,8 @@ public class Game {
     
     public void dealerPlay()
     {
+        if(dealer.getHand().getState()!=Handstate.Blackjack)
+        {
         int minimumStand=21;
         Iterator<User> it=this.players.iterator();
         while(it.hasNext())
@@ -174,6 +183,11 @@ public class Game {
         {
             dealerHit();
             dealer.getHand().evaluate();
+        }
+        if(dealer.getHand().getValue()<=21)
+        {
+            dealer.getHand().setState(Handstate.Stand);
+        }
         }
     }
 }

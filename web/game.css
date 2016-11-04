@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 24-okt-2016, 8:13:39
     Author     : Wouter
 */
-/*
+
 :root {
     --c1: #fbbe4f;
     --c2: #76d0c0;
@@ -459,7 +459,7 @@ a
     color: white;
     background-color: var(--c2);
 }
-.playerBlock:hover .amountAndState{
+.playerBlock:hover .amountAndState, #dealer:hover .amountAndState{
     opacity: 0.8;
 }
 
@@ -475,4 +475,27 @@ a
     
 }
 
-*/
+#winnings
+{
+    position: absolute;
+    left: 300px;
+    top: 300px;
+    width: 250px;
+    height: 180px;
+    border: 1px solid black;
+}
+#toStart{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+#restart{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+#winningTable
+{
+    position: absolute;
+    margin-bottom: 30px;
+}

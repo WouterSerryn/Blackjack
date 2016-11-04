@@ -12,23 +12,31 @@ import java.sql.Statement;
  */
 public class GameDAO {
 
-    public static ResultSet selectLargestId(String table){
-    String query = "SELECT max(ID) from " + table;
-    Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
-    ResultSet rs = null;
-    Statement stmt = null;
+    public static ResultSet selectLargestId(String table) {
+        String query = "SELECT max(ID) from " + table;
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        ResultSet rs = null;
+        Statement stmt = null;
 
-    
         try {
             stmt = con.createStatement();
-        rs = stmt.executeQuery(query);
-    }
-    catch (SQLException e
-
-    
-        ) {
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
             e.printStackTrace();
+        }
+        return rs;
     }
-    return rs ;
-}
+    public static void addGame(String date)
+    {
+        String query="insert into game (Date) values ('"+date+"')";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        Statement stmt = null;
+
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println("addgame error");
+        }
+    }
 }
