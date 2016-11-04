@@ -54,7 +54,7 @@ public class HistoryDAO {
     }
 
     public static ResultSet getHistoryByUser(String nickname) {
-        String query = "SELECT * from history, game, gamestate, user where game.id = history.gameid and user.id = history.userid and gamestate.id = history.gamestateid user.nickname '" + nickname + "'";
+        String query = "SELECT * from history, game, gamestate, user where game.id = history.gameid and user.id = history.userid and gamestate.id = history.gamestateid and user.nickname '" + nickname + "'";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         Statement stmt = null;
         ResultSet rs = null;
