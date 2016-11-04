@@ -1,4 +1,3 @@
-
 package blackjack.model;
 
 /**
@@ -6,7 +5,7 @@ package blackjack.model;
  * @author Chayenne Jacques
  */
 public class History {
-    
+
     private int gameId;
     private User user;
     private int bet;
@@ -40,7 +39,5 @@ public class History {
     public String getDate() {
         return date;
     }
-    
-    
- 
+
 }
