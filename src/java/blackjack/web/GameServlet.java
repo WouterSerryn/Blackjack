@@ -44,7 +44,7 @@ public class GameServlet extends HttpServlet {
         if (currentPlayerIndex == null) {
             System.out.println("no currentplayer");
             request.getServletContext().setAttribute("currentPlayerIndex", "0");
-             while(game.getPlayers().size()>index+1 && game.getPlayers().get(index+1).getHand().getState()==Handstate.Blackjack)
+             while(game.getPlayers().size()>index+1 && game.getPlayers().get(index).getHand().getState()==Handstate.Blackjack)
                     {
                     index += 1;
                     }
@@ -58,7 +58,7 @@ public class GameServlet extends HttpServlet {
                 currentPlayer.getHand().evaluate();
                 if (currentPlayer.getHand().getState() == Handstate.Busted || currentPlayer.getHand().getState()==Handstate.Stand) {
                     index+=1;
-                    while(game.getPlayers().size()>index+1 && game.getPlayers().get(index+1).getHand().getState()==Handstate.Blackjack)
+                    while(game.getPlayers().size()>index+1 && game.getPlayers().get(index).getHand().getState()==Handstate.Blackjack)
                     {
                     index += 1;
                     }
