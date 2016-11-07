@@ -32,7 +32,7 @@ public class GameDistributeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        Game game=(Game)request.getServletContext().getAttribute("game");
-       request.setAttribute("currentPlayerIndex",0);
+       request.getServletContext().setAttribute("currentPlayerIndex","0");
        RequestDispatcher view = request.getRequestDispatcher("Game.jsp");
         view.forward(request, response);
     }

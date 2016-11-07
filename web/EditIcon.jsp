@@ -50,7 +50,7 @@
             </script>
     </head>
     <body>
-        <div id="container">
+        <div id="largeContainer">
             
             
         <form name="iconForm" id="iconForm" action="ModifyIconServlet" method="post">
@@ -77,10 +77,10 @@
             
          <% i++; } %>
       
-            <button class="regularButton" name="Terug" formaction="SelectPlayers.jsp">Terug</button>
-            <input type="submit" name="submit" value="bevestigen" />
+             
         </form>
             </div>
-        
+       <button class="regularButton" name="Terug" id="previous" onclick="window.location='SelectPlayersServlet'">Terug</button>
+            <input type="submit" onclick="javascript:iconForm.submit()" class="regularButton" id="next" name="submit" value="bevestigen" />
     </body>
 </html>

@@ -87,9 +87,9 @@
             
                    
            <div id="betBlock">
-               <div id="betName" class="userName">inzet <% out.println(game.getPlayers().get(Integer.parseInt(currentPlayerIndex)).getNickname()); %></div>
-                <div class="userChips"><button onclick="window.location='GameServlet?action=hit'" class="regularButton"  name="hit">hit</button>
-                <button onclick="window.location='GameServlet?action=stand'" class="regularButton"  name="stand">stand</button></div>
+               <div id="betName" class="userName"><% out.println(game.getPlayers().get(Integer.parseInt(currentPlayerIndex)).getNickname()); %></div>
+                <div class="userChips"><button onclick="window.location='GameServlet?action=hit'" class="regularButton"  name="hit">Hit</button>
+                <button onclick="window.location='GameServlet?action=stand'" class="regularButton"  name="stand">Stand</button></div>
                 
             </div>
                 

@@ -125,9 +125,9 @@
                     %>
                     <div class="userBlockWrapper">
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>coins"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
-                            <a href="EditIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                            <a href="EditIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gearblack.png" /></a>
                     </div>
                     <%
                             }
@@ -136,9 +136,9 @@
                             %>
                     <div class="userBlockWrapper">
                         <div onclick="noCoins();" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.print(user.getNickname()); %></div><div class="userChips"><% out.print(user.getBalance()+"<br/>chips"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                            <div class="userName"><% out.print(user.getNickname()); %></div><div class="userChips"><% out.print(user.getBalance()+"<br/>coins"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
-                            <a href="EditIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gear.png" /></a>
+                            <a href="EditIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gearblack.png" /></a>
                     </div>
                     <%
                             }
@@ -147,16 +147,17 @@
                         }
                     %>
                 </div>
-
+               
             </div>
             <br/>
 
 
         </form>
+                <button class="regularButton" id="previous" onclick="location.href='StartScreen.jsp'">Terug</button>
+                <button class="regularButton" id="next" onclick="submitForm()" name="ok">Volgende</button>
                 <div id="playerListWithButtons">
                 <div id="playerList">Volgorde: </div>
-                <button class="regularButton" id="previous" onclick="location.href='StartScreen.jsp'">vorige</button>
-        <button class="regularButton" id="next" onclick="submitForm()" name="ok">volgende</button>
+                 
                 </div>
     </body>
 </html>

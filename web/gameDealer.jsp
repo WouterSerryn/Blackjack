@@ -27,6 +27,23 @@
         <link href="game.css" type="text/css" rel="stylesheet" />
         
         <title>JSP Page</title>
+        <script type="text/javascript">
+            function swapTable()
+            {
+                  
+                   
+                if (document.getElementById("winnings").classList.contains("visible"))
+                {
+                         document.getElementById("winnings").classList.remove("visible");
+                        document.getElementById("winnings").classList.add("hidden");
+                }
+                else
+                {
+                   document.getElementById("winnings").classList.add("visible");
+                        document.getElementById("winnings").classList.remove("hidden");  
+                }
+            }
+        </script>
     </head>
     <body>
        
@@ -95,11 +112,11 @@
             
                    
            <div id="betBlock">
-               <div id="betName" class="userName">Verder?</div>
-                <div class="userChips"><button onclick="winnings()" class="regularButton"  name="hit">Tabel</button></div>
+               <div id="betName" class="userName">Geschiedenis</div>
+                <div class="userChips"><button class="regularButton" id="swapTable" onclick="swapTable()"  name="hit">Tabel</button></div>
                 
             </div>
-                <div id="winnings">
+                <div id="winnings" class="visible">
                     <table id="winningsTable">
                         <tr>
                         <th>naam</th><th>status</th>

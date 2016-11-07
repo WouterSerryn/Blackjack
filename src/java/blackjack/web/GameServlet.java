@@ -50,7 +50,7 @@ public class GameServlet extends HttpServlet {
             if (action.equals("hit")) {
                 game.playerHit(currentPlayer);
                 currentPlayer.getHand().evaluate();
-                if (currentPlayer.getHand().getState() == Handstate.Busted) {
+                if (currentPlayer.getHand().getState() == Handstate.Busted || currentPlayer.getHand().getState()==Handstate.Stand) {
                     index+=1;
                     while(game.getPlayers().size()>index+1 && game.getPlayers().get(index+1).getHand().getState()==Handstate.Blackjack)
                     {

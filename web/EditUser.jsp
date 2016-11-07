@@ -36,11 +36,11 @@
     <body>
         <form action="ModifyUserServlet" method="post">
             Naam: <input type="text" readonly value="<% out.print(nickname); %>" name="nickname" /><br>
-            Credits: <input type="text" value="<% out.print(balance); %>" name="balance" /><br>
+            Credits: <input type="number" min="0" autofocus placeholder="<% out.print(balance); %>" name="balance" /><br>
             <input type="hidden" name="iconname" value="<% out.print(iconname); %>" />
 
             <br>
-            <button name="Terug" formaction="AccountManagement.jsp">Terug</button><input type="submit" value="Bevestigen" />
+            <button name="Terug" onclick="window.location='AccountManagement.jsp'">Terug</button><input type="submit" value="Bevestigen" />
         </form>
     </body>
 </html>

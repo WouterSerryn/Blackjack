@@ -80,7 +80,7 @@
                    
            <div id="betBlock">
                 <div id="betName" class="userName">Verder?</div>
-                <div class="userChips"><button onclick="window.location='GameServlet'" class="regularButton" id="betConfirm" name="confirm">ok</button></div>
+                <div class="userChips"><button onclick="window.location='GameDistributeServlet'" class="regularButton" id="betConfirm" name="confirm">Verder</button></div>
                 
             </div>
         </div>

@@ -20,39 +20,56 @@ and open the template in the editor.
 body
 {
     width: 100%;
+    height: 580px;
     margin: 0 auto;
     background-color: white;
     font-family: Helvetica;
+    background-image: url(images/background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: fixed;
 }
 #container, #largeContainer, #largeGameContainer, #gameContainer{
     position: relative;
     width: 400px;
     margin: 0 auto;
-    margin-top: 0px;
+    margin-top: 75px;
     border: 1px solid black;
     height: 400px;
     -webkit-border-radius: 0px 0px 10px 10px;
-
-    background-color: var(--c2);
+    
+    
+    color: white;
+    background-color: rgba(0,0,0,0.6);
 }
+
 #largeContainer{
     padding: 0px;
     width: 1024px;
-    height: 500px;
-    overflow-y: scroll;
+     min-height: 500px;
+     height: auto;
+     overflow: hidden;
+     
+    
+   
+    
 }
 #gameContainer{
  margin-top: 20px;
+
     width: 800px;
     height: 504px;
     border: 1px solid black;
-    box-shadow: 2px 2px 10px;
+    box-shadow: 2px 2px 10px black;
     background-image: url(images/blackjackTable.png);
+    
 }
 #largeGameContainer{
     padding: 0px;
     width: 1024px;
     height: 550px;
+    
+    
 }
 #userBlockContainer{
     width:900px;
@@ -63,9 +80,11 @@ body
 }
 .userBlockWrapper{
     float: left;
+
     position: relative;
     height: 140px;
     width: 170px;
+    color: black;
 }
 .userBlock, .userBlockSelected{
     width: 150px;
@@ -105,13 +124,15 @@ body
 
 #next
 {
-    position: relative;
-    left: 600px;
+    position: absolute;
+    left: 650px;
+    bottom: 20px;
 }
 #previous
 {
-    position: relative;
-    left: 400px;
+    position: absolute;
+    left: 550px;
+    bottom: 20px;
 }
 .regularButton
 {
@@ -121,6 +142,7 @@ body
     font-size: 15px;
     text-align: center;
     background-color: var(--c2);
+    -webkit-transition: all 0.4s ease-out;
 }
 .editIcon{
 
@@ -159,7 +181,7 @@ body
 .regularButton:hover
 {
     background-color: var(--c1);
-
+    -webkit-transition: all 0.1s ease-out;
 }
 .userName{
     position: absolute;
@@ -211,7 +233,7 @@ body
 
 #playerListWithButtons{
     position: relative;
-
+    
     height: 100px;
     width: 1024px;
     margin: 0 auto;
@@ -240,10 +262,12 @@ a
     top: 20px;
 }
 #playButton{
-    width: 120px;
-
+    width: 200px;
+    height: auto;
     position: absolute;
-    left: 140px;
+    font-size: 20px;
+    
+    left: 370px;
     bottom: 20px;
 }
 #loginButton{
@@ -255,54 +279,72 @@ a
 #userMenu{
     display: block;
     position: absolute;
-    top: 20px;
+    top: 0px;
     right: 20px;
     list-style: none;
 }
+#userMenu #menuList
+{
+    
+    list-style: none;
+    opacity: 0;
+    display: block;
+    position: absolute;
+    top: -200px;
+     right: 0px;
+   -webkit-transition: all 0.2s ease-out; 
+   height: 300px;
+   
+}
 #userMenu:hover #menuList
 {
+    opacity: 1;
     display: block;
+    top: 0px;
+    -webkit-transition: all 0.2s ease-out;
+     
 }
+
 #userMenu:hover .menuImage{
-    display: block;
+    display: none;
 }
+
 
 
 
 #startTitle{
     position: absolute;
-    width: 250px;
-    height: 100px;
-    top:100px;
-    left: 75px;
-    font-size: 35px;
+    width: auto;
+    height: auto;
+    top:70px;
+    left: 370px;
+    font-size: 55px;
     text-align: center;
     padding: 0;
 
 
 }
 #startImage{
-    width: 200px;
+    width: 300px;
     height: 200px;
     position: absolute;
     top: 150px;
-    left: 125px;
+    left: 330px;
     background-image: url("images/aces.png");
-    background-size: 150px 100px;
+    background-size: 300px 200px;
     background-repeat: no-repeat;
 }
-#menuList{
-    list-style: none;
-    display: none;
-}
+
 
 
 .menuImage{
     width:40px;
     height: 40px;
-    position: relative;
+    position: absolute;
     float: left;
     display: block;
+    right: 20px;
+    top: 20px;
 
     background-size: 40px 40px;
     background-repeat: no-repeat;
@@ -328,7 +370,7 @@ a
 {
 
     bottom: 120px;
-    left: 0px;
+    left: 25px;
 }
 #p2
 {
@@ -342,7 +384,7 @@ a
 }
 #p4{
     bottom: 120px;
-    right: 0px;
+    right: 25px;
 
 }
 
@@ -383,7 +425,7 @@ a
 }
 #betConfirm{
     position: absolute;
-    right: 10px;
+    right: 50px;
 }
 .userConfirm{
     position: absolute;
@@ -393,10 +435,10 @@ a
 
 .visble
 {
-    visibility: visible;
+   display: block;
 }
 .hidden{
-    visibility: hidden;
+    display: none;
 }
 
 
@@ -478,11 +520,12 @@ a
 #winnings
 {
     position: absolute;
-    left: 300px;
-    top: 300px;
+    left: 270px;
+    top: 200px;
     width: 250px;
     height: 180px;
     border: 1px solid black;
+    background-color: rgba(0,0,0,0.6);
 }
 #toStart{
     position: absolute;
