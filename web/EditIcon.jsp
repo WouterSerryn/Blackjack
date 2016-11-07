@@ -85,6 +85,6 @@
         </form>
             </div>
        <button class="regularButton" name="Terug" id="previous" onclick="window.location='SelectPlayersServlet'">Terug</button>
-            <input type="submit" onclick="javascript:iconForm.submit()" class="regularButton" id="next" name="submit" value="bevestigen" />
+            <input type="submit" onclick="javascript:iconForm.submit()" class="regularButton" id="next" name="submit" value="Bevestigen" />
     </body>
 </html>

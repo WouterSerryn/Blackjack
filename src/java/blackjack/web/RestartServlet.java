@@ -34,6 +34,7 @@ public class RestartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        RequestDispatcher view = request.getRequestDispatcher("GameBet.jsp");
             Game game=(Game)request.getServletContext().getAttribute("game");
             ArrayList<User> players=game.getPlayers();
             ArrayList<User> newPlayers=new ArrayList<>();
@@ -42,6 +43,8 @@ public class RestartServlet extends HttpServlet {
             while(it.hasNext())
             {
                 User user=it.next();
+                System.out.println(user.getNickname());
+                System.out.println(user.getBalance());
                 if(user.getBalance()>0)
                 {
                     newPlayers.add(user);
@@ -49,9 +52,14 @@ public class RestartServlet extends HttpServlet {
                 }
             }
             players=newPlayers;
+            game.setPlayerList(players);
+            if(players.isEmpty())
+            {
+                view = request.getRequestDispatcher("StartScreen.jsp");
+            }
             request.getServletContext().setAttribute("game",game);
             request.getServletContext().setAttribute("nickNames",nickNames);
-            RequestDispatcher view = request.getRequestDispatcher("GameBet.jsp");
+            
             view.forward(request, response);
     }
 
