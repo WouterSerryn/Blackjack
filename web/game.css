@@ -542,3 +542,84 @@ a
     position: absolute;
     margin-bottom: 30px;
 }
+.coin
+{
+    width: 18px;
+    height: auto;
+    top: 3px;
+    position: relative;
+    
+    margin-left: 5px;
+}
+.tableWrapper
+{
+   position: relative;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: white;
+    overflow-y: hidden;
+    width: 70%;
+    height: 515px;
+    background-color: rgba(0,0,0,0.6);
+    border: 1px solid black;
+    
+}
+
+
+
+.tableWrapper table
+{
+    
+width: 100%;
+
+}
+
+.table tr, .table2 tr{
+    height: 35px;
+      
+    
+}
+.table th, .table2 th{
+  background-color: var(--c2);
+  
+}
+.table td, .table th{
+ width: 19%;
+  
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+     
+}
+.table2 td, .table2 th{
+    width: 25%;
+       padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+     
+}
+.table tr:hover, .table2 tr:hover{
+    background-color: rgba(0,0,0,0.6);
+}
+.table thead, table2 thead
+{
+    position: relative;
+   
+    width: 20%;
+    
+    overflow: hidden;
+   
+   
+   
+}
+.table tbody, table2 tbody{
+    
+    position: absolute;
+   
+    width: 99.7%;
+    height: 475px;
+    overflow: hidden;
+    overflow-y: scroll;
+ 
+  
+}

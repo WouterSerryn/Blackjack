@@ -80,7 +80,7 @@
                    user=it.next();
                    %>
                    <div id="<%out.print("p"+i);%>" class="playerBlock">
-                       <div class="userName"><%out.print(user.getBalance()+" coins"); %>
+                       <div class="userName"><%out.print(user.getBalance()); %><img class="coin" src="images/coin.png" alt="coin" />
                            <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                            
                         </div>   
@@ -135,8 +135,8 @@
                         }
                         %>
                     </table>
-                    <button id="toStart" onclick="window.location='StartScreen.jsp'" class="regularButton">naar startmenu</button>
-                    <button id="restart" onclick="window.location='RestartServlet'" class="regularButton">verderspelen</button>
+                    <button id="toStart" onclick="window.location='StartScreen.jsp'" class="regularButton">Terug</button>
+                    <button id="restart" onclick="window.location='RestartServlet'" class="regularButton">Opnieuw</button>
                 </div>
                 
                 

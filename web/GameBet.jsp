@@ -34,11 +34,11 @@
             console.log("max: "+document.getElementById("betInput").max.valueOf());
             if(parseInt(bet)>parseInt(playerMax[window.index]))
             {
-                alert("U hebt niet zoveel credits!");
+                alert("U hebt niet genoeg coins!");
             }
             else if(parseInt(bet)<1)
             {
-                alert("U moet minimum 1 credit inzetten");
+                alert("U moet minimum 1 coin inzetten!");
             }
             else
             {
@@ -100,7 +100,7 @@
                    user=it.next();
                    %>
                    <div id="<%out.print("p"+i);%>" class="playerBlock">
-                       <div class="userName"><%out.print(user.getBalance()+" coins"); %>
+                       <div class="userName"><%out.print(user.getBalance()); %><img class="coin" src="images/coin.png" alt="coin" />
                            <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                            
                         </div>   

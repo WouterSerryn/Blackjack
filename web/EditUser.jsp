@@ -36,7 +36,7 @@
     <body>
         <form action="ModifyUserServlet" method="post">
             Naam: <input type="text" readonly value="<% out.print(nickname); %>" name="nickname" /><br>
-            Credits: <input type="number" min="0" autofocus placeholder="<% out.print(balance); %>" name="balance" /><br>
+            <img class="coin" src="images/coin.png" alt="coin" /> <input type="number" min="0" autofocus placeholder="<% out.print(balance); %>" name="balance" /><br>
             <input type="hidden" name="iconname" value="<% out.print(iconname); %>" />
 
             <br>

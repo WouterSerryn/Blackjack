@@ -27,10 +27,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="game.css" />
         <title>Geschiedenis</title>
     </head>
     <body> 
-        <table>
+        <div class="tableWrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Datum</th>
                 <th>GameId</th>
@@ -39,6 +42,9 @@
                 <th>Inzet</th>
                 <th>Status</th>
             </tr>
+            </thead>
+            <tbody>
+                
             <% Iterator<History> it = history.iterator();
             int previousGameId=-1;
             String previousDate="-1";
@@ -58,18 +64,20 @@
                     }
                 %></td>
                 <td><% out.print(h.getUser().getNickname()); %></td> 
-                <td><% out.print(h.getUser().getBalance()); %></td>
-                <td><% out.print(h.getUser().getBet()); %></td>
+                <td><% out.print(h.getUser().getBalance()); %><img class="coin" src="images/coin.png" alt="coin" /></td>
+                <td><% out.print(h.getUser().getBet()); %><img class="coin" src="images/coin.png" alt="coin" /></td>
                 <td><% out.print(h.getGamestate()); %></td>
             </tr> 
             <%
             previousGameId=h.getGameId();
             previousDate=h.getDate();
             }%>
+            </tbody>
         </table>
+        </div>
         <br>
         <form>
-            <button name="Terug" formaction="StartScreen.jsp">Terug</button>
+            <button name="Terug" class="regularButton" id="previous" formaction="StartScreen.jsp">Terug</button>
         </form>
     </body>
 </html>

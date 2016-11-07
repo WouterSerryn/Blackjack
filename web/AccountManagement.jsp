@@ -30,16 +30,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="game.css" />
         <title>JSP Page</title>
     </head>
-    <body>     
-        <table>
+    <body> 
+        <div class="tableWrapper">
+        <table class="table2">
+            <thead>
             <tr>
                 <th>Icoon</th>
                 <th>Naam</th> 
-                <th>Credits</th>
+                <th><img class="coin" src="images/coin.png" alt="coin" /></th>
                 <th>Bewerkingen</th>
             </tr>
+            </thead>
+            <tbody>
             <% Iterator<User> it = users.iterator();
                 while (it.hasNext()) {
                     User user = it.next(); %>
@@ -47,14 +52,17 @@
                 <td><% out.print(user.getIcon().getIconName()); %></td>
                 <td><% out.print(user.getNickname()); %></td> 
                 <td><% out.print(user.getBalance()); %></td>
-                <td><a href="EditUser.jsp?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance=<% out.print(user.getBalance()); %>">Wijzig</a> 
-                    <% if (!(headuserNickname.equals(user.getNickname()))) { %>  <a href="DeleteUserServlet?nickname=<% out.print(user.getNickname()); %>">Verwijder</a><% } %></td>
+                <td><a class="regularButton" href="EditUser.jsp?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance=<% out.print(user.getBalance()); %>">Wijzig</a> 
+                    <% if (!(headuserNickname.equals(user.getNickname()))) { %>  <a class="regularButton" href="DeleteUserServlet?nickname=<% out.print(user.getNickname()); %>">Verwijder</a><% } %></td>
             </tr> 
+            
             <% }%>
+            </tbody>
         </table>
+        </div>
         <br>
         <form>
-            <button name="Terug" formaction="StartScreen.jsp">Terug</button><button name="gebruikerToevoegen" formaction="AddUser.jsp">Gebruiker toevoegen</button>
+            <button class="regularButton" id="previous" name="Terug" formaction="StartScreen.jsp">Terug</button><button class="regularButton" id="next" name="gebruikerToevoegen" formaction="AddUser.jsp">Gebruiker toevoegen</button>
         </form>
         
     </body>

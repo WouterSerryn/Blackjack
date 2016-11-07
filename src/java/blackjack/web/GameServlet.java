@@ -40,11 +40,17 @@ public class GameServlet extends HttpServlet {
         Game game = (Game) request.getServletContext().getAttribute("game");
         String currentPlayerIndex = (String) request.getServletContext().getAttribute("currentPlayerIndex");
         System.out.println(currentPlayerIndex);
+        int index = Integer.parseInt(currentPlayerIndex);
         if (currentPlayerIndex == null) {
             System.out.println("no currentplayer");
             request.getServletContext().setAttribute("currentPlayerIndex", "0");
-        } else if (Integer.parseInt(currentPlayerIndex) < game.getPlayers().size()) {
-            int index = Integer.parseInt(currentPlayerIndex);
+             while(game.getPlayers().size()>index+1 && game.getPlayers().get(index+1).getHand().getState()==Handstate.Blackjack)
+                    {
+                    index += 1;
+                    }
+             request.getServletContext().setAttribute("currentPlayerIndex", index + "");
+        }else if (Integer.parseInt(currentPlayerIndex) < game.getPlayers().size()) {
+            
             String action = (String) request.getParameter("action");
             User currentPlayer = game.getPlayers().get(index);
             if (action.equals("hit")) {

@@ -51,7 +51,7 @@
                    user=it.next();
                    %>
                    <div id="<%out.print("p"+i);%>" class="playerBlock">
-                       <div class="userName"><%out.print(user.getBalance()+" coins"); %>
+                       <div class="userName"><%out.print(user.getBalance()); %><img class="coin" src="images/coin.png" alt="coin" />
                            <img class="playerIcon" src="<%out.print(user.getIcon().getIconImage());%>" alt="icoon" />
                            
                         </div>   
@@ -67,7 +67,7 @@
                                out.print(user.getHand().getValue());
                             }%></div>
                       
-                           <div id="<%out.print("bet"+i);%>" class="playerBet">ingezet: <% out.print(user.getBet()); %> </div>
+                           <div id="<%out.print("bet"+i);%>" class="playerBet">ingezet: <% out.print(user.getBet()); %> <img class="coin" src="images/coin.png" alt="coin" /></div>
                        <div class="cardsBlock"><% for(int j=0;j<user.getHand().getCards().size();j++){
                            %><div class="card"><img src="<% out.print(user.getHand().getCards().get(j).getCardimage()); %>" class="cardImage" /></div><%
                        } %></div>

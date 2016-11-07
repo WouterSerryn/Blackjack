@@ -54,6 +54,7 @@
             
             
         <form name="iconForm" id="iconForm" action="ModifyIconServlet" method="post">
+            <div id="userBlockContainer">
             <input name="nickname" class="regularButton" type="hidden" value="<% out.print(nickname); %>" /><br/>
             <input name="newIconName" id="iconName" class="regularButton" type="hidden" value="<% out.print(icon.getIconName()); %>" />
             
@@ -65,6 +66,7 @@
                         iconFromList = it.next();
                 
                 %>
+                
                 <div id="<%out.print(i);%>" class="userBlock" onclick="swapSelected(<%out.print(i);%>,<% out.print("\'"+iconFromList.getIconName()+"\'"); %>)">
                   <div class="userName">
                       <% out.print(iconFromList.getIconName()); %>
@@ -72,12 +74,14 @@
                   <div class="icon">
                       <img class="userIcon" src="<% out.print(iconFromList.getIconImage()); %>" />
                   </div>
+               
                 </div>
+        
                 
             
          <% i++; } %>
       
-             
+             </div>
         </form>
             </div>
        <button class="regularButton" name="Terug" id="previous" onclick="window.location='SelectPlayersServlet'">Terug</button>

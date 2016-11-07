@@ -125,7 +125,7 @@
                     %>
                     <div class="userBlockWrapper">
                         <div onclick="swapSelected(<% out.print(i + "," + "'" + user.getNickname() + "'"); %>)" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()+"<br/>coins"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                            <div class="userName"><% out.println(user.getNickname()); %></div><div class="userChips"><% out.println(user.getBalance()); %><img class="coin" src="images/coin.png" alt="coin" /></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
                             <a href="EditIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gearblack.png" /></a>
                     </div>
@@ -136,7 +136,7 @@
                             %>
                     <div class="userBlockWrapper">
                         <div onclick="noCoins();" class="userBlock" id="<% out.print(i); %>">
-                            <div class="userName"><% out.print(user.getNickname()); %></div><div class="userChips"><% out.print(user.getBalance()+"<br/>coins"); %></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
+                            <div class="userName"><% out.print(user.getNickname()); %></div><div class="userChips"><% out.print(user.getBalance()); %><img class="coin" src="images/coin.png" alt="coin" /></div><img class="userIcon" src="<% out.println(user.getIcon().getIconImage()); %>" />
                         </div>
                             <a href="EditIconServlet?nickname=<% out.print(user.getNickname()); %>&iconname=<% out.print(user.getIcon().getIconName()); %>&balance<% out.print(user.getBalance()); %>" title="Icoon wijzigen" class="editIcon"><img class="editIconImage" src="images/gearblack.png" /></a>
                     </div>

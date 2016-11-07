@@ -12,6 +12,7 @@ import java.util.Iterator;
  * @author Chayenne Jacques
  */
 public class Game {
+
     public static Game game;
     private Dealer dealer;
     private ArrayList<User> players;
@@ -19,26 +20,24 @@ public class Game {
     private Calendar date;
 
     public Game() {
-        
+
         this.dealer = new Dealer();
-        this.deck = new Deck();  
+        this.deck = new Deck();
         this.date = Calendar.getInstance();
         this.date.add(Calendar.DATE, 0);
-        System.out.println("date of today: "+date.getTime());
+        System.out.println("date of today: " + date.getTime());
     }
-    public void setPlayerList(ArrayList<User> players)
-    {
-        this.players=players;
+
+    public void setPlayerList(ArrayList<User> players) {
+        this.players = players;
     }
-    public static Game getGame()
-    {
-        if(game==null)
-        {
-            game=new Game();
+
+    public static Game getGame() {
+        if (game == null) {
+            game = new Game();
         }
         return game;
     }
-    
 
     /**
      * kaart wordt van deck gehaald en toegevoegd aan de hand van User user
@@ -126,7 +125,7 @@ public class Game {
             if (user.getState().equals(Gamestate.Loss)) {
                 //niets doen..
             } else if (user.getState().equals(Gamestate.Push)) {
-               user.setBalance((int) (user.getBalance() + user.getBet()));
+                user.setBalance((int) (user.getBalance() + user.getBet()));
             } else if (user.getState().equals(Gamestate.Win)) {
                 if (user.getHand().getState().equals(Handstate.Stand)) {
                     user.setBalance((int) (user.getBalance() + (user.getBet() * 2)));
@@ -141,7 +140,7 @@ public class Game {
 
     public String getDate() {
         String formattedDate = new SimpleDateFormat("dd-MM-yyyy").format(date.getTime());
-        System.out.println("Formatted date "+formattedDate);
+        System.out.println("Formatted date " + formattedDate);
         return formattedDate;
     }
 
@@ -156,38 +155,39 @@ public class Game {
     public Deck getDeck() {
         return deck;
     }
-    
-    public void dealerPlay()
-    {
-        if(dealer.getHand().getState()!=Handstate.Blackjack)
-        {
-        int minimumStand=21;
-        Iterator<User> it=this.players.iterator();
-        while(it.hasNext())
-        {
-            User player=it.next();
-            if(player.getHand().getValue()<minimumStand)
-            {
-                minimumStand=player.getHand().getValue();
+
+    public void dealerPlay() {
+        Iterator<User> users = players.iterator();
+        Boolean needToPlay = false;
+        while (users.hasNext()) {
+            if (users.next().getHand().getState() != Handstate.Busted) {
+                needToPlay = true;
+                break;
             }
         }
-        if(minimumStand==21)
-        {
-            minimumStand=17;
-        }
-        if(minimumStand<17)
-        {
-            minimumStand=17;
-        }
-        while(this.dealer.getHand().getValue()<minimumStand)
-        {
-            dealerHit();
-            dealer.getHand().evaluate();
-        }
-        if(dealer.getHand().getValue()<=21)
-        {
-            dealer.getHand().setState(Handstate.Stand);
-        }
+        if (needToPlay) {
+            if (dealer.getHand().getState() != Handstate.Blackjack) {
+                int minimumStand = 21;
+                Iterator<User> it = this.players.iterator();
+                while (it.hasNext()) {
+                    User player = it.next();
+                    if (player.getHand().getValue() < minimumStand) {
+                        minimumStand = player.getHand().getValue();
+                    }
+                }
+                if (minimumStand == 21) {
+                    minimumStand = 16;
+                } else if (minimumStand < 17) {
+                    minimumStand = 16;
+                }
+                while (this.dealer.getHand().getValue() < minimumStand + 1) {
+                    dealerHit();
+                    dealer.getHand().evaluate();
+                }
+                if (dealer.getHand().getValue() <= 21) {
+                    dealer.getHand().setState(Handstate.Stand);
+                }
+            }
         }
     }
 }
